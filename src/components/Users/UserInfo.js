@@ -1,9 +1,9 @@
 import React from 'react'
 
-const userInfo = () => {
+const UserInfo = () => {
     return (
-        <div>userInfo</div>
+        <div>UserInfo</div>
     )
 }
 
-export default userInfo
+export default UserInfo

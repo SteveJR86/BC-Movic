@@ -1,9 +1,9 @@
 import React from 'react'
 
-const showDetail = () => {
+const MovicDetail = () => {
     return (
-        <div>showDetail</div>
+        <div>MovicDetail</div>
     )
 }
 
-export default showDetail
+export default MovicDetail
