@@ -1,9 +1,9 @@
 import React from 'react'
 
-const list = () => {
+const MovicList = () => {
   return (
-    <div>list</div>
+    <div>MovicList</div>
   )
 }
 
-export default list
+export default MovicList

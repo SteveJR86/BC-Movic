@@ -1,9 +1,9 @@
 import React from 'react'
 
-const comments = () => {
+const Comments = () => {
     return (
-        <div>comments</div>
+        <div>Comments</div>
     )
 }
 
-export default comments
+export default Comments

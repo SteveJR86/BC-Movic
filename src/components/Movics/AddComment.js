@@ -1,9 +1,9 @@
 import React from 'react'
 
-const addComment = () => {
+const AddComment = () => {
     return (
-        <div>addComment</div>
+        <div>AddComment</div>
     )
 }
 
-export default addComment
+export default AddComment
