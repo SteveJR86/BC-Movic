@@ -1,7 +1,10 @@
-import './App.css';
-// import RegistrationForm from './components/RegistrationForm';
-import LoginForm from './components/LoginForm';
-import { Grommet } from 'grommet';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Wrapper from "./components/Wrapper";
+import Footer from './components/Footer';
+import LoginForm from './components/Login/LoginForm';
+import Movic from './components/Movics/MovicList';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -28,13 +31,21 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-
 function App() {
   return (
-    <Grommet full>
-      {/* <RegistrationForm /> */}
-      <LoginForm />
-    </Grommet>
+    <Router>
+      <div>
+        <Navbar />
+        <Wrapper>
+          <Routes>
+            <Route path="/" element={<LoginForm />} />
+            <Route path="/movies" element={<Movic />} />
+            <Route path="/musics" element={<Movic />} />
+          </Routes>
+        </Wrapper>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
