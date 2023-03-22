@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Wrapper from "./components/Wrapper";
+import Footer from './components/Footer';
+import LoginForm from './components/Login/LoginForm';
+import Movic from './components/Movics/MovicList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Wrapper>
+          <Routes>
+            <Route path="/" element={<LoginForm />} />
+            <Route path="/movies" element={<Movic />} />
+            <Route path="/musics" element={<Movic />} />
+          </Routes>
+        </Wrapper>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
