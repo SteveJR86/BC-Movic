@@ -16,7 +16,7 @@ const MovieAPI = () => {
 
                 const topTen = (results => ({
                     name: data.results[0].title,
-                    poster: `https://image.tmdb.org/t/p/original/${data.results[0].backdrop_path}`,
+                    poster: `https://image.tmdb.org/t/p/original/${data.results[0].poster_path}`,
                     plot: data.results[0].overview,
                     releaseDate: data.results[0].release_date,   
                 }));
@@ -32,10 +32,10 @@ const MovieAPI = () => {
         
     //  {topRated.map(results => (
         <div>
-            <Card height="medium" width="small" background="light-1">
+            <Card height="medium" width="medium" background="light-1">
                 <CardHeader pad="medium">{topRated.name}{topRated.releaseDate}</CardHeader>
-                <CardBody pad="medium">{topRated.poster}{topRated.plot}
-                    <img src={`https://image.tmdb.org/t/p/original/{topRated.backdrop_path}`}  alt={topRated.title} /></CardBody>
+                <CardBody pad="medium">{topRated.plot}
+                    <img src={`${topRated.poster}`}  alt={topRated.title} /></CardBody>
             </Card>
         </div>
 
