@@ -1,24 +1,23 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Form, FormField, TextInput, Box, Button } from 'grommet/components';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
-const LoginForm = () => {
+function Login({ setLoggedIn }){
     const [value, setValue] = useState({
         'email': '',
         'password': ''
     })
-    
+    const nav = useNavigate();
+
     function login(value) {
+        const auth = getAuth();
         const email = value.email;
         const password = value.password;
-        const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            // ...
-            console.log(user)
-            
+        .then(() => {
+            setLoggedIn(true)
+            nav('/')
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -31,7 +30,10 @@ const LoginForm = () => {
         <Form
             value={value}
             onChange={nextValue => setValue(nextValue)}
-            onReset={() => setValue({})}
+            onReset={() => setValue({
+                'email': '',
+                'password': ''
+            })}
             onSubmit={({ value }) => {login(value)}}
         >
             <FormField name='email' htmlFor='email' label='Email'>
@@ -48,4 +50,4 @@ const LoginForm = () => {
     )
 }
 
-export default LoginForm
+export default Login

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Wrapper from "./components/Wrapper";
+import Home from './components/Home';
+import Register from './components/Register';
+import Login from './components/Login';
+import Logout from './components/Logout';
 import Footer from './components/Footer';
-import LoginForm from './components/Login/LoginForm';
 import Movic from './components/Movics/MovicList';
 
 // Import the functions you need from the SDKs you need
@@ -29,18 +32,27 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 // Initialize Firebase Authentication and get a reference to the service
-const auth = getAuth(app);
+
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  
+  useEffect(() => {
+    getAuth(app);
+    setLoggedIn(true)
+    }, [])
   return (
     <Router>
       <div>
-        <Navbar />
+        <Navbar loggedIn={loggedIn} />
         <Wrapper>
           <Routes>
-            <Route path="/" element={<LoginForm />} />
+            <Route path="/" element={<Home loggedIn={loggedIn} />} />
             <Route path="/movies" element={<Movic />} />
             <Route path="/musics" element={<Movic />} />
+            <Route path="/register" element={<Register setLoggedIn={setLoggedIn} />} />
+            <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
+            <Route path="/logout" element={<Logout setLoggedIn={setLoggedIn} />} />
           </Routes>
         </Wrapper>
         <Footer />

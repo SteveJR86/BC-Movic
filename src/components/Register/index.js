@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Form, FormField, TextInput, Box, Button } from 'grommet/components';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
-const RegistrationForm = () => {
+function Register({setLoggedIn}){
     const [value, setValue] = useState({
         'email': '',
         'password': '',
         'password2': ''});
+    const nav = useNavigate();
 
     function validate(value){
         if (value.password===value.password2){
@@ -16,8 +18,8 @@ const RegistrationForm = () => {
             createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
-                const user = userCredential.user;
-                console.log(user)
+                setLoggedIn(true)
+                nav('/')
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -53,4 +55,4 @@ const RegistrationForm = () => {
     )
 }
 
-export default RegistrationForm
+export default Register
