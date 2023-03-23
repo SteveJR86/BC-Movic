@@ -5,12 +5,7 @@ import {Card, CardHeader, CardBody} from "grommet"
 
 
 const MovieAPI = () => {
-    const [topRated, setTopRated] = useState({
-        name: '',
-        plot: '',
-        poster: '',
-        releaseDate: '',
-    });
+    const [topRated, setTopRated] = useState([]);
 
         useEffect(() => {
             fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=10754df5d1765ad1f1824e9434972268`)
@@ -18,28 +13,35 @@ const MovieAPI = () => {
              
               .then(data => {
                 console.log(data)
-                
-                setTopRated({
-                    
+
+                const topTen = (results => ({
                     name: data.results[0].title,
-                    poster: data.results[0].poster_path,
+                    poster: `https://image.tmdb.org/t/p/original/${data.results[0].backdrop_path}`,
                     plot: data.results[0].overview,
-                    releaseDate: data.results[0].release_date,
-
-                });
+                    releaseDate: data.results[0].release_date,   
+                }));
+                setTopRated(topTen)
+    
             });
-    }, [topRated]);
+    }, []);
 
-   
+    
+
+    
     return (
+        
+    //  {topRated.map(results => (
         <div>
             <Card height="medium" width="small" background="light-1">
                 <CardHeader pad="medium">{topRated.name}{topRated.releaseDate}</CardHeader>
                 <CardBody pad="medium">{topRated.poster}{topRated.plot}
-                    <img src="https://api.themoviedb.org/3/movie/{topRated.poster}" alt={topRated.title} /></CardBody>
+                    <img src={`https://image.tmdb.org/t/p/original/{topRated.backdrop_path}`}  alt={topRated.title} /></CardBody>
             </Card>
         </div>
-    );
+
+    //  ))
+    )
+
     }
 
     export default MovieAPI
