@@ -7,7 +7,9 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Footer from './components/Footer';
-import Movic from './components/Movics/MovicList';
+import MovicList from './components/Movics/MovicList';
+import UserInfo from "./components/Users/UserInfo";
+import About from "./components/About";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -36,11 +38,11 @@ const app = initializeApp(firebaseConfig);
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  
+
   useEffect(() => {
     getAuth(app);
     setLoggedIn(true)
-    }, [])
+  }, [])
   return (
     <Router>
       <div>
@@ -48,11 +50,13 @@ function App() {
         <Wrapper>
           <Routes>
             <Route path="/" element={<Home loggedIn={loggedIn} />} />
-            <Route path="/movies" element={<Movic />} />
-            <Route path="/musics" element={<Movic />} />
+            <Route path="/movies/*" element={<MovicList type='movie' />} />
+            <Route path="/musics/*" element={<MovicList type='music' />} />
             <Route path="/register" element={<Register setLoggedIn={setLoggedIn} />} />
             <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
             <Route path="/logout" element={<Logout setLoggedIn={setLoggedIn} />} />
+            <Route path="/users/*" element={<UserInfo />} />
+            <Route path="/About" element={<About />} />
           </Routes>
         </Wrapper>
         <Footer />
