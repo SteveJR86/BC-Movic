@@ -1,8 +1,15 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom';
+import MovicDetail from "./MovicDetail";
 
-const MovicList = () => {
+function MovicList(props) {
   return (
-    <div>MovicList</div>
+    <div>
+      <h1>{props.type} list</h1>
+      <Routes>
+        <Route path="detail" element={<MovicDetail />} />
+      </Routes>
+    </div>
   )
 }
 

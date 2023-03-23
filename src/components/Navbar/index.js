@@ -42,6 +42,16 @@ function Navbar() {
               Music list
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
+              About Movic
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>

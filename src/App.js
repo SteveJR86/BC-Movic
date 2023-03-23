@@ -4,7 +4,9 @@ import Navbar from './components/Navbar';
 import Wrapper from "./components/Wrapper";
 import Footer from './components/Footer';
 import LoginForm from './components/Login/LoginForm';
-import Movic from './components/Movics/MovicList';
+import MovicList from './components/Movics/MovicList';
+import UserInfo from "./components/Users/UserInfo";
+import About from "./components/About";
 
 function App() {
   return (
@@ -14,8 +16,11 @@ function App() {
         <Wrapper>
           <Routes>
             <Route path="/" element={<LoginForm />} />
-            <Route path="/movies" element={<Movic />} />
-            <Route path="/musics" element={<Movic />} />
+            <Route path="/movies/*" element={<MovicList type='movie' />} />
+            <Route path="/musics/*" element={<MovicList type='music' />} />
+            <Route path="/users/*" element={<UserInfo />} />
+            <Route path="/About" element={<About />} />
+
           </Routes>
         </Wrapper>
         <Footer />
