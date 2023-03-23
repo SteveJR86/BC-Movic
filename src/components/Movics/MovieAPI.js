@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import {Card, CardHeader, CardBody} from "grommet"
+import {Card, CardHeader, CardBody, Carousel} from "grommet"
 import "./movielist.css"
 
 
@@ -36,10 +36,12 @@ const MovieAPI = () => {
 console.log(topRated)
     
     return (
-        <div className="cards">
+      
+         <div className="cards">
+            <Carousel controls="arrows" height="large" width="large">
         {topRated.map(results => {
             return (<div>
-            <Card style={{margin: "20px"}} height="medium" width="medium" background="light-1">
+            <Card style={{margin: "20px"}} height="large" width="large" background="light-1">
                 <CardHeader pad="medium">{results.name}{results.releaseDate}</CardHeader>
                 <CardBody pad="medium">{results.plot}
                     <img src={`${results.poster}`}  alt={results.title} /></CardBody>
@@ -49,8 +51,11 @@ console.log(topRated)
         })
 
 
-        }
+        } 
+        </Carousel>
         </div>
+     
+       
 
         
  
