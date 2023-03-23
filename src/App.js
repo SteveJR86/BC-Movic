@@ -15,7 +15,7 @@ import About from "./components/About";
 import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
-import AddComment from './components/Movics/AddComment';
+import Comments from './components/Movics/Comments';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -28,7 +28,8 @@ const firebaseConfig = {
   storageBucket: "movic-2316b.appspot.com",
   messagingSenderId: "748397665144",
   appId: "1:748397665144:web:e4cfe7d2a929f0cc8f868d",
-  measurementId: "G-L1ZJ4LY9FT"
+  measurementId: "G-L1ZJ4LY9FT",
+  databaseURL: "https://movic-2316b-default-rtdb.europe-west1.firebasedatabase.app/",
 };
 
 // Initialize Firebase
@@ -51,7 +52,7 @@ function App() {
         <Wrapper>
           <Routes>
             <Route path="/" element={<Home loggedIn={loggedIn} />} />
-            <Route path="/movies/*" element={<MovicList type='movie' />} />
+            <Route path="/movies/*" element={<Comments app={app} movicid="123" />} />
             <Route path="/musics/*" element={<MovicList type='music' />} />
             <Route path="/register" element={<Register setLoggedIn={setLoggedIn} />} />
             <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />

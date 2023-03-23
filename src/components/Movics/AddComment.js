@@ -1,31 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Form, FormField, TextArea } from 'grommet/components';
 import { getAuth } from '@firebase/auth';
-import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
-
-// TODO: Replace the following with your app's Firebase project configuration
-// See: https://firebase.google.com/docs/web/learn-more#config-object
-const firebaseConfig = {
-    apiKey: "AIzaSyChnQKdRbgUA0UO5E3jAHgbLoHl39dzwco",
-    authDomain: "movic-2316b.firebaseapp.com",
-    projectId: "movic-2316b",
-    storageBucket: "movic-2316b.appspot.com",
-    messagingSenderId: "748397665144",
-    appId: "1:748397665144:web:e4cfe7d2a929f0cc8f868d",
-    measurementId: "G-L1ZJ4LY9FT",
-    // The value of `databaseURL` depends on the location of the database
-    databaseURL: "https://movic-2316b-default-rtdb.europe-west1.firebasedatabase.app/",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+import { getDatabase, ref, set } from "firebase/database";
 
 
-// Initialize Realtime Database and get a reference to the service
-const database = getDatabase(app);
 
-const AddComment = () => {
+const AddComment = ({ app, movicid  }) => {
+    // Initialize Realtime Database and get a reference to the service
+    
     const [value, setValue] = useState({
         "comment": ""
     })
@@ -35,8 +17,11 @@ const AddComment = () => {
             value={value}
             onChange={nextValue => setValue(nextValue)}
             onSubmit={({value}) => {
-                console.log(value, auth)
-
+                const database = getDatabase(app);
+                set(ref(database, "movic/" + movicid), {
+                    email: auth.currentUser.email,
+                    comment: value.comment
+                })
                 setValue({"comment": ""})
             }}
         >
