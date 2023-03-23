@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import './style.css';
 
 function IsLoggedIn({ loggedIn }) {
-  if(loggedIn){
+  if (loggedIn) {
     return (
       <>
         <li className="nav-item">
@@ -32,26 +32,26 @@ function IsLoggedIn({ loggedIn }) {
   } else {
     return (
       <>
-      <li className="nav-item">
-        <NavLink
-          to="/login"
-          className={({ isActive }) =>
-            isActive ? 'nav-link active' : 'nav-link'
-          }
-        >
-          Login
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink
-          to="/register"
-          className={({ isActive }) =>
-            isActive ? 'nav-link active' : 'nav-link'
-          }
-        >
-          Register
-        </NavLink>
-      </li>
+        <li className="nav-item">
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              isActive ? 'nav-link active' : 'nav-link'
+            }
+          >
+            Login
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink
+            to="/register"
+            className={({ isActive }) =>
+              isActive ? 'nav-link active' : 'nav-link'
+            }
+          >
+            Register
+          </NavLink>
+        </li>
       </>
     )
   }
@@ -96,6 +96,16 @@ function Navbar({ loggedIn }) {
               }
             >
               Music list
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? 'nav-link active' : 'nav-link'
+              }
+            >
+              About Movic
             </NavLink>
           </li>
           <IsLoggedIn loggedIn={loggedIn} />
