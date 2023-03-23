@@ -1,42 +1,49 @@
 import React, { useEffect, useState } from 'react';
-import { Card, CardBody, CardHeader } from 'grommet';
+import { Grid, Card, CardBody, CardHeader, Image } from 'grommet';
 
-function MusicAPI({ userArtist, userSong }) {
-
-    // Define trackInfo state with initial values for the track name, artist, and image
-    const [trackInfo, setTrackInfo] = useState({
-        name: '',
-        artist: '',
-        image: ''
-    });
-
-    // Fetch track information from Last.fm API when userArtist or userSong prop values change
+function MusicAPITop10() {
+    const [topTracks, setTopTracks] = useState([]);
+    // Fetch tracks information from Last.fm API 
     useEffect(() => {
-        const queryURL = `https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=b8fb15424569c55a9e5e88ff5fd1a59a&artist=${userArtist}&track=${userSong}&format=json`;
+        const queryURL = `https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=b8fb15424569c55a9e5e88ff5fd1a59a&format=json`;
 
         fetch(queryURL)
             .then(response => response.json())
             .then(data => {
-                const track = data.track;
-                // Update trackInfo state with new values from API response
-                setTrackInfo({
+                // Render Tracks to top 10 
+                const tracks = data.tracks.track.slice(0, 10).map(track => ({
                     name: track.name,
                     artist: track.artist.name,
-                    image: track.album.image[2]['#text']
-                });
-            });
-    }, [userArtist, userSong]);
+                    image: track.image[2]['#text']
+                }));
+                setTopTracks(tracks);
+            })
 
-    // Temporary Render the track information as a Grommet card with the track name, artist, and image as example of export
+    }, []);
+
     return (
         <div>
-            <Card height="medium" width="small" background="light-1">
-                <CardHeader pad="medium">{trackInfo.name}</CardHeader>
-                <CardBody pad="medium">{trackInfo.artist}
-                    <img src={trackInfo.image} alt={trackInfo.artist} /></CardBody>
-            </Card>
+            <Grid
+                columns={{
+                    count: 10,
+                    size: 'auto',
+                }}
+                gap="small"
+            >
+                {topTracks.map(track => (
+                    <Card key={track.name} height="medium" width="small" background="light-1">
+                        <CardHeader pad="medium">{track.name}</CardHeader>
+                        <CardBody pad="medium">
+                            <div>{track.artist}</div>
+                            <Image fit="cover" src={track.image} alt={track.artist} />
+                        </CardBody>
+                    </Card>
+
+
+                ))}
+            </Grid>
         </div>
     );
 }
 
-export default MusicAPI;
+export default MusicAPITop10;
