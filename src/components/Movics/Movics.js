@@ -11,7 +11,6 @@ const Movics = (props) => {
             <Routes>
                 <Route path="" element={<MovicList type={props.type} />} />
                 <Route path="*" element={<MovicDetail name={location.state} type={props.type} />} />
-
             </Routes>
         </div>
     )
