@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import {Card, CardHeader, CardBody, Carousel} from "grommet"
+import {Card, CardHeader, CardBody, Carousel, Image} from "grommet"
 import "./movielist.css"
 
 
@@ -44,7 +44,7 @@ console.log(topRated)
             <Card style={{margin: "20px"}} height="large" width="large" background="light-1">
                 <CardHeader pad="medium">{results.name}{results.releaseDate}</CardHeader>
                 <CardBody pad="medium">{results.plot}
-                    <img src={`${results.poster}`}  alt={results.title} /></CardBody>
+                    <Image src={`${results.poster}`}  alt={results.title} fit="contain"/></CardBody>
             </Card>
         </div>)
 
