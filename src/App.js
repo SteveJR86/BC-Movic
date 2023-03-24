@@ -41,7 +41,11 @@ function App() {
 
   useEffect(() => {
     const auth = getAuth(app);
-    if(auth.currentUser){setLoggedIn(true)}
+    auth.onAuthStateChanged((user) => {
+      if(user){
+        setLoggedIn(true)
+      }
+    })
   }, [])
   return (
     <Router>
