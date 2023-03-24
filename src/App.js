@@ -7,7 +7,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Footer from './components/Footer';
-import MovicList from './components/Movics/MovicList';
+import Movics from './components/Movics/Movics';
 import UserInfo from "./components/Users/UserInfo";
 import About from "./components/About";
 
@@ -50,8 +50,8 @@ function App() {
         <Wrapper>
           <Routes>
             <Route path="/" element={<Home loggedIn={loggedIn} />} />
-            <Route path="/movies/*" element={<MovicList type='movie' />} />
-            <Route path="/musics/*" element={<MovicList type='music' />} />
+            <Route path="/movies/*" element={<Movics type='movie' />} />
+            <Route path="/musics/*" element={<Movics type='music' />} />
             <Route path="/register" element={<Register setLoggedIn={setLoggedIn} />} />
             <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
             <Route path="/logout" element={<Logout setLoggedIn={setLoggedIn} />} />

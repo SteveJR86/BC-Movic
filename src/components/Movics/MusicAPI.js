@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Card, CardBody, CardHeader, Image } from 'grommet';
+import { Link, Route, Routes } from 'react-router-dom';
 
-function MusicAPITop10() {
+function MusicAPITop10(props) {
     const [topTracks, setTopTracks] = useState([]);
     // Fetch tracks information from Last.fm API 
     useEffect(() => {
@@ -32,7 +33,11 @@ function MusicAPITop10() {
             >
                 {topTracks.map(track => (
                     <Card key={track.name} height="medium" width="small" background="light-1">
-                        <CardHeader pad="medium">{track.name}</CardHeader>
+                        <CardHeader pad="medium">
+                            <Link to={track.name} state={track.name} role="button" className="btn btn-link">
+                                {track.name}
+                            </Link>
+                        </CardHeader>
                         <CardBody pad="medium">
                             <div>{track.artist}</div>
                             <Image fit="cover" src={track.image} alt={track.artist} />
