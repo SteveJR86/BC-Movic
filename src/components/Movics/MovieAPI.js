@@ -13,11 +13,11 @@ const MovieAPI = () => {
              .then((response) => response.json())
              
               .then(data => {
-                console.log(data)
+                //console.log(data)
                 let topTenArray = []
 
                 for(let i = 0; i<data.results.length-10; i++) {
-                    console.log(data.results[i])
+                    //console.log(data.results[i])
 
                 const topTen = {
                     name: data.results[i].title,
@@ -27,13 +27,13 @@ const MovieAPI = () => {
                 }
                 topTenArray.push(topTen);
                 setTopRated(topTenArray)
-                console.log(topTenArray)
+                //console.log(topTenArray)
             }
             });
     }, []);
 
     
-console.log(topRated)
+//console.log(topRated)
     
     return (
       
