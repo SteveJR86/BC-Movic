@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Grid, Card, CardBody, CardHeader, Image } from 'grommet';
+import { Carousel, Card, CardBody, CardHeader, Image, Heading } from 'grommet';
+import "./movielist.css"
 
 function MusicAPITop10() {
     const [topTracks, setTopTracks] = useState([]);
@@ -22,26 +23,18 @@ function MusicAPITop10() {
     }, []);
 
     return (
-        <div>
-            <Grid
-                columns={{
-                    count: 10,
-                    size: 'auto',
-                }}
-                gap="small"
-            >
+        <div className="cards">
+            <Carousel controls="arrows" height="large" width="large">
                 {topTracks.map(track => (
-                    <Card key={track.name} height="medium" width="small" background="light-1">
-                        <CardHeader pad="medium">{track.name}</CardHeader>
+                    <Card key={track.name} Card style={{ margin: "20px" }} height="large" width="large" background="light-1">
+                        <CardHeader pad="medium"><Heading size="medium">{track.name}</Heading></CardHeader>
                         <CardBody pad="medium">
-                            <div>{track.artist}</div>
+                            <div><Heading size="small">{track.artist}</Heading></div>
                             <Image fit="cover" src={track.image} alt={track.artist} />
                         </CardBody>
                     </Card>
-
-
                 ))}
-            </Grid>
+            </Carousel>
         </div>
     );
 }
