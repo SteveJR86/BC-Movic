@@ -1,8 +1,11 @@
 import React from 'react'
+import MovieAPI from './MovieAPI'
 
 const MovicList = () => {
   return (
-    <div>MovicList</div>
+    <div>Movie List
+      <div><MovieAPI/></div>
+    </div>
   )
 }
 
