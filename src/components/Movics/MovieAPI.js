@@ -49,15 +49,9 @@ console.log(topRated)
         </div>)
 
         })
-
-
         } 
         </Carousel>
         </div>
-     
-       
-
-        
  
    )
     }
