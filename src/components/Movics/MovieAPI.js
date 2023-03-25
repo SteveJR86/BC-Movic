@@ -45,7 +45,7 @@ const MovieAPI = (props) => {
                         <Card style={{ margin: "20px" }} height="large" width="large" background="light-1">
                             <CardHeader pad="medium"><Heading size="medium">
 
-                                <Link to={results.name} state={results.name} role="button" className="btn btn-link">
+                                <Link to={`../movies/${results.name}`} state={results.name} role="button" className="btn btn-link">
                                     {results.name}
                                 </Link>
 

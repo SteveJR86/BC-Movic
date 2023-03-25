@@ -32,7 +32,7 @@ function MusicAPITop10(props) {
                     <Card key={track.name} Card style={{ margin: "20px" }} height="large" width="large" background="light-1">
                         <CardHeader pad="medium">
                             <Heading size="medium">
-                                <Link to={track.name} state={track.name} role="button" className="btn btn-link">
+                                <Link to={`../musics/${track.name}`} state={track.name} role="button" className="btn btn-link">
                                     {track.name}
                                 </Link>
                             </Heading>
