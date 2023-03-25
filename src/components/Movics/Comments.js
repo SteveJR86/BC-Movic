@@ -1,31 +1,29 @@
-import React from 'react'
+import { getDatabase, onValue, ref } from 'firebase/database'
+import React, { useEffect, useState } from 'react'
 import AddComment from './AddComment'
 import Comment from './Comment'
 
 const Comments = ({ app, movicid }) => {
-    const commentData = [
-        {
-            email:  "steven@test.com",
-            comment: "here is the first comment"
-        },
-        {
-            email:  "bob@test.com",
-            comment: "here is the second comment"
-        },
-        {
-            email:  "fred@test.com",
-            comment: "here is the third comment"
-        },
-    ]
+    
+    const [comments, setComments ] = useState([])
+    const database = getDatabase();
+    
+    
+    useEffect(() => onValue(
+        ref(database, "movic/" + movicid), (snapshot) => {
+            const data = snapshot.val()
+            setComments(data);
+    }), [])
+    
     return (
         <>
             <h1>This is the comments page with comments appearing below</h1>
             {
-                commentData.map((comment, index) => <Comment key={index} username={comment.email} comment={comment.comment} />)
+                (comments ? comments.map((comment, index) => <Comment key={index} username={comment.email} comment={comment.comment} />) : (<p>No Comments</p>))
             }
             
 
-            <AddComment app={app} movicid={ movicid } />
+            <AddComment app={app} movicid={ movicid } comments={ comments } />
         </>
         
     )
