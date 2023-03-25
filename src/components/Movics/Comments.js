@@ -1,4 +1,6 @@
 import { getDatabase, onValue, ref } from 'firebase/database'
+import { Card } from 'grommet'
+import { CardHeader } from 'grommet/components'
 import React, { useEffect, useState } from 'react'
 import AddComment from './AddComment'
 import Comment from './Comment'
@@ -13,15 +15,16 @@ const Comments = ({ app, movicid }) => {
         ref(database, "movic/" + movicid), (snapshot) => {
             const data = snapshot.val()
             setComments(data);
-    }), [])
+    }), [database, movicid])
     
     return (
         <>
-            <h1>This is the comments page with comments appearing below</h1>
+            <Card style={{margin: "10px", padding: "10px"}}>
+                <CardHeader>Comments</CardHeader>
             {
                 (comments ? comments.map((comment, index) => <Comment key={index} username={comment.email} comment={comment.comment} />) : (<p>No Comments</p>))
             }
-            
+            </Card>
 
             <AddComment app={app} movicid={ movicid } comments={ comments } />
         </>

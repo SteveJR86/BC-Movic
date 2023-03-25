@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Card, Form, FormField, TextArea } from 'grommet/components';
+import { Button, Card, Form, FormField, TextInput } from 'grommet/components';
 import { getAuth } from '@firebase/auth';
 import { getDatabase, ref, set } from "firebase/database";
 
@@ -25,7 +25,7 @@ const AddCommentForm = ({ app, movicid, comments }) => {
                 }}
             >
                 <FormField name="comment" htmlFor="comment-area" label="Add new comment:">
-                    <TextArea
+                    <TextInput
                         id="comment-area"
                         name="comment"
                         required
@@ -47,7 +47,7 @@ const AddComment = ({ app, movicid, comments }) => {
     const auth = getAuth()
     
     return (
-        <Card style={{ padding:"10px", backgroundColor:"#DDDDDD"}}>
+        <Card style={{ margin: "10px", padding:"10px", backgroundColor:"#DDDDDD"}}>
             {(auth.currentUser ? <AddCommentForm app={app} movicid={movicid} comments={comments} /> : <PleaseLogIn />)}
         </Card>
         
