@@ -56,7 +56,7 @@ function App() {
         <Wrapper>
           <Routes>
             <Route path="/" element={<Home loggedIn={loggedIn} />} />
-            <Route path="/movies/*" element={<Comments app={app} movicid="123" />} />
+            <Route path="/movies/*" element={<MovicList type='movie' />} />
             <Route path="/musics/*" element={<MovicList type='music' />} />
             <Route path="/register" element={<Register setLoggedIn={setLoggedIn} />} />
             <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
