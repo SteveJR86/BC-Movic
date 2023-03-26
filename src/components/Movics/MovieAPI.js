@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Card, CardHeader, CardBody, Carousel, Image, Heading } from "grommet"
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "./movielist.css"
 
 

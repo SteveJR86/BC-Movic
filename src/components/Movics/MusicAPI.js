@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel, Card, CardBody, CardHeader, Image, Heading } from 'grommet';
 import "./movielist.css"
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function MusicAPITop10(props) {
