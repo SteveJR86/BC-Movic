@@ -1,39 +1,34 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
+import { Search } from 'grommet-icons';
+import { Box, TextInput,Button } from 'grommet';
 
-// const searchMovie = () => {
-   
 
-//         useEffect (() => {
-//             fetch(`https://api.themoviedb.org/3/search/movie?api_key=10754df5d1765ad1f1824e9434972268&language=en-US&query=[gladiator]`)
-//             .then(response => response.json())
-//             .then(data => {
-//                 console.log(data)
-//             })
-//         })
-      
-//         }
-  
-  const SearchMovie = async(e)=>{
+  const SearchMovie = () => {
 
    const [query, setQuery]=useState('');
-    useEffect(() => {
-    e.preventDefault();
-    console.log("Searching");
-    try{
-      const url=`https://api.themoviedb.org/3/search/movie?api_key=10754df5d1765ad1f1824e9434972268=${query}`;
-      const res=  fetch(url);
-      const data= res.json();
-      console.log(data);
-      setQuery(data.results);
+    
+   fetch(`https://api.themoviedb.org/3/search/movie?api_key=10754df5d1765ad1f1824e9434972268&query=${query}`)
+   .then((results) => results.json())
+   .then((data) => {
+    console.log(data)
+   })
+     const onChange=(e)=>{
+        e.preventDefault();
+         setQuery(e.target.value);
     }
-    catch(e) {
-      console.log(e);}
-    });
+    }
+   
 
-    const changeHandler=(e)=>{
-    setQuery(e.target.value);
-    }
-   }
+    
+//     return ( 
+//     <><div>
+//         <Box fill align="center" justify="start" pad="large">
+// 10    <Box width="medium" gap="medium">
+// 12      <TextInput placeholder="search ..." value={query} onChange={onChange} /><Button plain icon={<Search />} onClick={SearchMovie} /> </Box>
+// 14  </Box>
+//         </div></>
+//     )
+//    }
 
 
   
