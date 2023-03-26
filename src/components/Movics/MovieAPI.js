@@ -14,11 +14,11 @@ const MovieAPI = (props) => {
             .then((response) => response.json())
 
             .then(data => {
-                console.log(data)
+                
                 let topTenArray = []
 
                 for (let i = 0; i < data.results.length - 10; i++) {
-                    console.log(data.results[i])
+                    
 
                     const topTen = {
                         name: data.results[i].title,
@@ -28,15 +28,14 @@ const MovieAPI = (props) => {
                     }
                     topTenArray.push(topTen);
                     setTopRated(topTenArray)
-                    console.log(topTenArray)
+                    
                 }
             });
     }, []);
 
+      return (
+   
 
-    console.log(topRated)
-
-    return (
 
         <div className="cards">
             <Carousel controls="arrows" height="large" width="large">
