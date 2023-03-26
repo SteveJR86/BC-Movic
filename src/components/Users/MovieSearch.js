@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import { Search } from 'grommet-icons';
-import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, CardFooter,} from 'grommet';
+import { Search, Add } from 'grommet-icons';
+import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, CardFooter, Button} from 'grommet';
 import AddComment from '../Movics/AddComment';
 
 
@@ -47,7 +47,8 @@ import AddComment from '../Movics/AddComment';
         {results.map(results => { 
             return (
             <Card >
-                <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading></CardHeader>
+                <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading><Button color="dark-1" primary icon={<Add color="brand" />} label="Add to Favourites" onClick={() => {}}
+    /></CardHeader>
                 <CardBody pad="medium">{results.plot}
                     <Image src={`${results.poster}`}  alt={results.title} fit="contain"/>{results.releaseDate}</CardBody>
                     <CardFooter pad="medium"><AddComment/></CardFooter>
