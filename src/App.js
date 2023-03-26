@@ -60,7 +60,7 @@ function App() {
             <Route path="/register" element={<Register setLoggedIn={setLoggedIn} />} />
             <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
             <Route path="/logout" element={<Logout setLoggedIn={setLoggedIn} />} />
-            <Route path="/users/*" element={<UserInfo />} />
+            <Route path="/profile/*" element={<UserInfo />} />
             <Route path="/About" element={<About />} />
           </Routes>
         </Wrapper>
