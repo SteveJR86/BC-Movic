@@ -27,7 +27,8 @@ const firebaseConfig = {
   storageBucket: "movic-2316b.appspot.com",
   messagingSenderId: "748397665144",
   appId: "1:748397665144:web:e4cfe7d2a929f0cc8f868d",
-  measurementId: "G-L1ZJ4LY9FT"
+  measurementId: "G-L1ZJ4LY9FT",
+  databaseURL: "https://movic-2316b-default-rtdb.europe-west1.firebasedatabase.app/",
 };
 
 // Initialize Firebase
