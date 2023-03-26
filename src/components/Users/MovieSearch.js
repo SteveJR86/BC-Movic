@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import { Search } from 'grommet-icons';
-import { Box, TextInput,Button,Card,Image,Heading,CardHeader,CardBody } from 'grommet';
+import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid,} from 'grommet';
+import "../Movics/movielist.css"
 
 
   const SearchMovie = () => {
@@ -34,12 +35,32 @@ import { Box, TextInput,Button,Card,Image,Heading,CardHeader,CardBody } from 'gr
 
     return ( 
     <><div>
-        <Box fill align="center" justify="start" pad="large">
+        <Box fill align="end" justify="start" pad="large">
    <Box width="medium" gap="medium">
-      <TextInput placeholder="search ..." value={query} onChange={onChange} /><Button plain icon={<Search />} onClick={SearchMovie} /> </Box>
+      <TextInput placeholder="search ..." value={query} onChange={onChange} reverse icon={<Search />} />  </Box>
   </Box>
         </div>
-       <div>
+
+        <Box pad="large">
+      <Grid columns={ 'medium' ? 'medium' : '75%'} gap="small">
+        {results.map(results => { 
+            return (
+            <Card >
+                <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading></CardHeader>
+                <CardBody pad="medium">{results.plot}
+                    <Image src={`${results.poster}`}  alt={results.title} fit="contain"/>{results.releaseDate}</CardBody>
+           
+          </Card>
+            )
+
+        })}
+     </Grid>
+   </Box> 
+           
+          
+          
+        
+        {/* <div className="searchcards">
        {results.map(results => {
             return (<div>
             <Card style={{margin: "20px"}} height="large" width="large" background="light-1">
@@ -47,11 +68,12 @@ import { Box, TextInput,Button,Card,Image,Heading,CardHeader,CardBody } from 'gr
                 <CardBody pad="medium">{results.plot}
                     <Image src={`${results.poster}`}  alt={results.title} fit="contain"/>{results.releaseDate}</CardBody>
             </Card>
+            
         </div>)
 
         })
         } 
-       </div>
+    </div> */}
         
         </>
     )

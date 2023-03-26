@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchMovie from './SuggestMovic';
+import SearchMovie from './MovieSearch';
 
 
 const UserInfo = () => {
