@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel, Card, CardBody, CardHeader, Image, Heading } from 'grommet';
 import "./movielist.css"
+import { Link } from 'react-router-dom';
 
-function MusicAPITop10() {
+
+function MusicAPITop10(props) {
     const [topTracks, setTopTracks] = useState([]);
     // Fetch tracks information from Last.fm API 
     useEffect(() => {
@@ -26,8 +28,15 @@ function MusicAPITop10() {
         <div className="cards">
             <Carousel controls="arrows" height="large" width="large">
                 {topTracks.map(track => (
+
                     <Card key={track.name} Card style={{ margin: "20px" }} height="large" width="large" background="light-1">
-                        <CardHeader pad="medium"><Heading size="medium">{track.name}</Heading></CardHeader>
+                        <CardHeader pad="medium">
+                            <Heading size="medium">
+                                <Link to={`../musics/${track.name}`} state={track.name} role="button" className="btn btn-link">
+                                    {track.name}
+                                </Link>
+                            </Heading>
+                        </CardHeader>
                         <CardBody pad="medium">
                             <div><Heading size="small">{track.artist}</Heading></div>
                             <Image fit="cover" src={track.image} alt={track.artist} />

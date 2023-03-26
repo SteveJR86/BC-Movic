@@ -1,9 +1,36 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import MovieAPI from './MovieAPI';
+import MusicAPI from './MusicAPI';
+import Comments from "./Comments";
 
-const MovicDetail = () => {
-    return (
-        <div>MovicDetail</div>
-    )
+const MovicDetail = (props) => {
+    if (props.type === "movie") {
+        return (
+            <div>
+                <h2>{props.name}</h2>
+                <div><MovieAPI name={props.name} /></div>
+                <div><Comments /></div>
+                <Link to="../" role="button" className="btn btn-link">
+                    Go back to list
+                </Link>
+            </div>
+
+        )
+
+    } else if (props.type === "music") {
+        return (
+            <div>
+                <h2>{props.name}</h2>
+                <div><MusicAPI name={props.name} /></div>
+                <div><Comments /></div>
+                <Link to="../" role="button" className="btn btn-link">
+                    Go back to list
+                </Link>
+            </div>
+        )
+
+    }
 }
 
 export default MovicDetail
