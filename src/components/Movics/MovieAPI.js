@@ -1,11 +1,12 @@
-import React, {useEffect, useState} from "react"
-import {Card, CardHeader, CardBody, Carousel, Image, Heading} from "grommet"
+import React, { useEffect, useState } from "react"
+import { Card, CardHeader, CardBody, Carousel, Image, Heading } from "grommet"
+import { Link } from 'react-router-dom';
 import "./movielist.css"
 
 
 //Movie API Function
 
-const MovieAPI = () => {
+const MovieAPI = (props) => {
     const [topRated, setTopRated] = useState([]);
 
         useEffect(() => {
@@ -36,25 +37,31 @@ const MovieAPI = () => {
 //console.log(topRated)
     
     return (
-      
-         <div className="cards">
+
+        <div className="cards">
             <Carousel controls="arrows" height="large" width="large">
-        {topRated.map(results => {
-            return (<div>
-            <Card style={{margin: "20px"}} height="large" width="large" background="light-1">
-                <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading></CardHeader>
-                <CardBody pad="medium">{results.plot}
-                    <Image src={`${results.poster}`}  alt={results.title} fit="contain"/>{results.releaseDate}</CardBody>
-            </Card>
-        </div>)
+                {topRated.map(results => {
+                    return (<div>
+                        <Card style={{ margin: "20px" }} height="large" width="large" background="light-1">
+                            <CardHeader pad="medium"><Heading size="medium">
 
-        })
-        } 
-        </Carousel>
+                                <Link to={`../movies/${results.name}`} state={results.name} role="button" className="btn btn-link">
+                                    {results.name}
+                                </Link>
+
+                            </Heading></CardHeader>
+                            <CardBody pad="medium">{results.plot}
+                                <Image src={`${results.poster}`} alt={results.title} fit="contain" />{results.releaseDate}</CardBody>
+                        </Card>
+                    </div>)
+
+                })
+                }
+            </Carousel>
         </div>
- 
-   )
-    }
 
-    
-    export default MovieAPI
+    )
+}
+
+
+export default MovieAPI
