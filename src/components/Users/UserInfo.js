@@ -1,5 +1,4 @@
 import React from 'react';
-import SearchMovie from './MovieSearch';
 import { Avatar, Box, Heading} from 'grommet';
 import {  User } from "grommet-icons";
 
@@ -10,7 +9,7 @@ const UserInfo = () => {
     <><Box direction="row" gap="small">
             <Avatar size="4xl" background="brand"><User color="text-strong" />
             </Avatar><Heading >Username</Heading>
-        </Box><SearchMovie />
+        </Box>
         <Box>
         <h1>Favourite Movies</h1>
         </Box>

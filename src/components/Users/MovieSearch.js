@@ -34,12 +34,12 @@ import "../Movics/movielist.css"
     }
 
     return ( 
-    <><div>
-        <Box fill align="end" justify="start" pad="large">
+    <>
+        <Box fill align="center" justify="start" pad="large">
    <Box width="medium" gap="medium">
       <TextInput placeholder="search for movies or music..." value={query} onChange={onChange} reverse icon={<Search />} />  </Box>
   </Box>
-        </div>
+        
 
         <Box pad="large">
       <Grid columns={ 'medium' ? 'medium' : '75%'} gap="small">
