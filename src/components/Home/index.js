@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import Movics from '../Movics/Movics';
 import Login from '../Login';
+import SearchMovie from "../Users/MovieSearch";
 
 function Home({ loggedIn }) {
   if (loggedIn) {
     return (
-      <Movics />
+      <SearchMovie />
     )
   } else {
     return (

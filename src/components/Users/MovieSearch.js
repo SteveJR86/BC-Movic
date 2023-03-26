@@ -1,7 +1,8 @@
 import {useState} from 'react';
 import { Search } from 'grommet-icons';
-import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid,} from 'grommet';
-import "../Movics/movielist.css"
+import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, CardFooter,} from 'grommet';
+import AddComment from '../Movics/AddComment';
+
 
 
   const SearchMovie = () => {
@@ -35,7 +36,7 @@ import "../Movics/movielist.css"
 
     return ( 
     <><div>
-        <Box fill align="end" justify="start" pad="large">
+        <Box fill align="center" justify="start" pad="large">
    <Box width="medium" gap="medium">
       <TextInput placeholder="search ..." value={query} onChange={onChange} reverse icon={<Search />} />  </Box>
   </Box>
@@ -49,6 +50,7 @@ import "../Movics/movielist.css"
                 <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading></CardHeader>
                 <CardBody pad="medium">{results.plot}
                     <Image src={`${results.poster}`}  alt={results.title} fit="contain"/>{results.releaseDate}</CardBody>
+                    <CardFooter pad="medium"><AddComment/></CardFooter>
            
           </Card>
             )
@@ -57,24 +59,6 @@ import "../Movics/movielist.css"
      </Grid>
    </Box> 
            
-          
-          
-        
-        {/* <div className="searchcards">
-       {results.map(results => {
-            return (<div>
-            <Card style={{margin: "20px"}} height="large" width="large" background="light-1">
-                <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading></CardHeader>
-                <CardBody pad="medium">{results.plot}
-                    <Image src={`${results.poster}`}  alt={results.title} fit="contain"/>{results.releaseDate}</CardBody>
-            </Card>
-            
-        </div>)
-
-        })
-        } 
-    </div> */}
-        
         </>
     )
     }
