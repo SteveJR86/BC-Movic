@@ -2,3 +2,10 @@
     display: flex;
     justify-content: center;
 }
+
+.searchcards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
