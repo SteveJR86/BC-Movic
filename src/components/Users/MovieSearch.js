@@ -1,7 +1,9 @@
 import {useState} from 'react';
-import { Search, Add } from 'grommet-icons';
+import { Search,  } from 'grommet-icons';
 import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, CardFooter, Button} from 'grommet';
 import AddComment from '../Movics/AddComment';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -9,6 +11,7 @@ import AddComment from '../Movics/AddComment';
 
     const [query, setQuery]=useState('');
     const [results,setResults]=useState([]);
+    const [favourites, setFavourites]=useState([]);
 
     const onChange = (e) => {
         e.preventDefault();
@@ -17,7 +20,7 @@ import AddComment from '../Movics/AddComment';
    fetch(`https://api.themoviedb.org/3/search/movie?api_key=10754df5d1765ad1f1824e9434972268&language=en-US&query=${query}`)
    .then((results) => results.json())
    .then((data) => {
-    console.log(data)
+    //console.log(data)
 
     let movieSearchArray = []
     
@@ -32,6 +35,12 @@ import AddComment from '../Movics/AddComment';
     movieSearchArray.push(movieSearch)
     setResults(movieSearchArray)
     }})
+    }; 
+
+    const AddtoFavourites = (results) => {
+      setFavourites([...favourites, results])
+
+
     }
 
     return ( 
@@ -46,9 +55,14 @@ import AddComment from '../Movics/AddComment';
       <Grid columns={ 'medium' ? 'medium' : '75%'} gap="small">
         {results.map(results => { 
             return (
-            <Card >
-                <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading><Button color="dark-1" primary icon={<Add color="brand" />} label="Add to Favourites" onClick={() => {}}
-    /></CardHeader>
+            <Card key={results.id} className='movie'>
+                <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
+                <Button color="dark-1"  onClick={AddtoFavourites}>
+                  <Link to={{ 
+                    pathname:`./UserInfo/${results.id}`,
+                    // state: {movie}
+                  }}></Link>Add to Favourites
+                    </Button></CardHeader>
                 <CardBody pad="medium">{results.plot}
                     <Image src={`${results.poster}`}  alt={results.title} fit="contain"/>{results.releaseDate}</CardBody>
                     <CardFooter pad="medium"><AddComment/></CardFooter>
@@ -64,7 +78,7 @@ import AddComment from '../Movics/AddComment';
     )
     }
 
-
+//primary icon={<Add color="brand" />} label="Add to Favourites"
   
   
   
