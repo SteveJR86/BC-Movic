@@ -16,13 +16,13 @@ const UserInfo = () => {
         <Box pad="large" background="dark">
          <Card >
         <h1>Favourite Movies</h1>
-        <p>No added favourites yet</p>
+        <p>No added favourites yet map</p> 
         </Card>
         </Box>
         <Box pad="large">
             <Card>
         <h1>Favourite Songs</h1>
-        <p>No added favourites yet</p>
+        <p>No added favourites yet map</p>
         </Card>
         </Box>
 

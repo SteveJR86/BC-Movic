@@ -3,6 +3,8 @@ import { Search,  } from 'grommet-icons';
 import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, CardFooter, Button} from 'grommet';
 import AddComment from '../Comments/AddComment';
 import { Link } from 'react-router-dom';
+import { getDatabase, ref, set } from "firebase/database";
+import { getAuth,} from 'firebase/auth';
 
 
 
@@ -27,18 +29,28 @@ import { Link } from 'react-router-dom';
     for(let i = 0; i<data.results.length; i++) {
 
     const movieSearch = {
+        movieID: data.results[i].id,
         name: data.results[i].title,
         poster: `https://image.tmdb.org/t/p/original/${data.results[i].poster_path}`,
         plot: data.results[i].overview,
         releaseDate: data.results[i].release_date,   
     }
     movieSearchArray.push(movieSearch)
+    console.log(movieSearchArray)
     setResults(movieSearchArray)
-    }})
+    }}) 
     }; 
-
-    const AddtoFavourites = (results) => {
-      setFavourites([...favourites, results])
+       //app,results,= might have to readd
+    const AddtoFavourites = (movieID) => {
+      const movietoSave = results.find(results=>results.movieID===movieID)
+      console.log(movietoSave)
+      const favouriteArray = []
+      favourites.push(movietoSave)
+      
+     
+      console.log(favourites)
+    //   const database = getDatabase(app);
+    //  set(ref(database, "favourites/" + getAuth().currentUser.email),favourites) 
 
 
     }
@@ -57,7 +69,7 @@ import { Link } from 'react-router-dom';
             return (
             <Card key={results.id} className='movie'>
                 <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
-                <Button color="dark-1"  onClick={AddtoFavourites}>
+                <Button color="dark-1"  onClick={()=>AddtoFavourites(results.movieID)}>
                   <Link to={{ 
                     pathname:`./UserInfo/${results.id}`,
                     // state: {movie}
