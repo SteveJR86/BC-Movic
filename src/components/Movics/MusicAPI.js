@@ -65,7 +65,7 @@ function MusicAPITop10(props) {
                     <Card key={track.name} Card style={{ margin: "20px" }} height="large" width="large" background="light-1">
                         <CardHeader pad="medium">
                             <Heading size="medium">
-                                <Link to={`../musics/${track.name}`} state={track.name} role="button" className="btn btn-link">
+                                <Link to={`../musics/${track.name}`} state={[track.name, track.artist]} role="button" className="btn btn-link">
                                     {track.name}
                                 </Link>
                             </Heading>
@@ -75,7 +75,7 @@ function MusicAPITop10(props) {
                             <Box gap="medium" direction="row" align="center" justify="center" wrap pad="medium">
                                 {track.wiki}
                             </Box>
-                            <Image fit="contain" src={track.image || 'https://lh3.googleusercontent.com/e42szzxCqrbkdb3dvk880QP7SHUcXKx_Pktipi7WiwIoG8CB4WiZnSzK0HQ2-aNCrFwkcStoTMFUBHlGbUU1Tx4=w1280'} alt={track.artist} />
+                            <Image fit="contain" src={track.image || 'https://i.ibb.co/JRjprxY/My-project-1-2.png'} alt={track.artist} />
                             <Box gap="medium" direction="row" align="center" justify="center" wrap key="small" pad="medium">
                                 <Tag name="Play Count" value={track.playcount} />
                                 <Tag name="Listeners" value={track.listeners} />
