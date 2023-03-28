@@ -7,7 +7,7 @@ function About() {
         <Grommet>
             <Box>
                 <Box
-                    background="url('https://lh4.googleusercontent.com/a0UVkd8rdgeeoBTIZqctBCr4CUK1OqNXg2_MTBYf9tTbzKkleWxkzWx-RdEehYCg5Di_QisnV14VIWzE4Twl3X4vy79HOtyFct9cAHjvaqwyWdBJJsujNguGnI_y7KEJTQ=w1280')"
+                    background="url('https://i.ibb.co/27dmzSG/My-project-1-4.jpg')"
                     height="small"
                     width="100%"
                     align='center'
@@ -31,7 +31,7 @@ function About() {
                             </Box>
                         </Box>
                         <Box
-                            background="url('https://lh5.googleusercontent.com/nwve0MkTgPqFnqqfMuX0FY7X2dG5JEF5zDZGl5oizJFsSyHn802FzjTC6O6lXqXdAS8-tDWp7nYIH25hFzAN0MP37d7ifcPLyrw1290Vqu2Bs8tOXQnnfxgtHlCTPZ0YAg=w1280')"
+                            background="url('https://i.ibb.co/0m99Jw3/My-project-1.jpg')"
                         >
 
                         </Box>
@@ -54,7 +54,7 @@ function About() {
                                     <CardHeader pad="small" ><Heading level={3}>Chido Munyanyi</Heading></CardHeader>
                                     <CardBody pad="small">
                                         <Box direction="row" gap="small">
-                                            <Avatar size='5xl' src="https://lh5.googleusercontent.com/O_itfy1tjBqGhz_g3bYhf1nQ2S-NDyjxdrgS8YBv3oG_xYIdlDLpzC_Ii5q2vdWabxEQH2_U49xJWCoYZuWyb_kEyM9kDxEoejCk8WNQKvY9BLx9rvboXJr4YKrZKQHMGA=w1280" />
+                                            <Avatar size='5xl' src="https://i.ibb.co/DwxKsWG/My-project-1-9.jpg" />
                                         </Box>
                                     </CardBody>
                                     <CardFooter pad={{ vertical: "small" }} background="light-2">
@@ -71,7 +71,7 @@ function About() {
                                     <CardHeader pad="small" ><Heading level={3}>Steven Riley</Heading></CardHeader>
                                     <CardBody pad="small">
                                         <Box direction="row" gap="small">
-                                            <Avatar size='5xl' src="https://lh5.googleusercontent.com/O_itfy1tjBqGhz_g3bYhf1nQ2S-NDyjxdrgS8YBv3oG_xYIdlDLpzC_Ii5q2vdWabxEQH2_U49xJWCoYZuWyb_kEyM9kDxEoejCk8WNQKvY9BLx9rvboXJr4YKrZKQHMGA=w1280" />
+                                            <Avatar size='5xl' src="https://i.ibb.co/DwxKsWG/My-project-1-9.jpg" />
                                         </Box></CardBody>
                                     <CardFooter pad={{ vertical: "small" }} background="light-2">
                                         <Box direction="row" width='100%'>
@@ -87,7 +87,7 @@ function About() {
                                     <CardHeader pad="small" ><Heading level={3}>Thomas Hands</Heading></CardHeader>
                                     <CardBody pad="small">
                                         <Box direction="row" gap="small">
-                                            <Avatar size='5xl' src="https://lh5.googleusercontent.com/O_itfy1tjBqGhz_g3bYhf1nQ2S-NDyjxdrgS8YBv3oG_xYIdlDLpzC_Ii5q2vdWabxEQH2_U49xJWCoYZuWyb_kEyM9kDxEoejCk8WNQKvY9BLx9rvboXJr4YKrZKQHMGA=w1280" />
+                                            <Avatar size='5xl' src="https://i.ibb.co/DwxKsWG/My-project-1-9.jpg" />
                                         </Box></CardBody>
                                     <CardFooter pad={{ vertical: "small" }} background="light-2">
                                         <Box direction="row" width='100%'>
@@ -103,7 +103,7 @@ function About() {
                                     <CardHeader pad="small" ><Heading level={3}>Yasha Zamanpour Kolouee</Heading></CardHeader>
                                     <CardBody pad="small" >
                                         <Box direction="row" gap="small">
-                                            <Avatar size='5xl' src="https://lh5.googleusercontent.com/O_itfy1tjBqGhz_g3bYhf1nQ2S-NDyjxdrgS8YBv3oG_xYIdlDLpzC_Ii5q2vdWabxEQH2_U49xJWCoYZuWyb_kEyM9kDxEoejCk8WNQKvY9BLx9rvboXJr4YKrZKQHMGA=w1280" />
+                                            <Avatar size='5xl' src="https://i.ibb.co/DwxKsWG/My-project-1-9.jpg" />
                                         </Box>
 
                                     </CardBody>
