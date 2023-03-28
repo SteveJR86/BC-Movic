@@ -4,7 +4,7 @@ import Login from '../Login';
 import Selector from "./Selector";
 
 function Home({ loggedIn }) {
-  if (!loggedIn) {
+  if (loggedIn) {
     return (
       <Selector />
     )

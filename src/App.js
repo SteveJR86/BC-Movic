@@ -54,7 +54,7 @@ function App() {
         <Navbar loggedIn={loggedIn} />
         <Wrapper>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home loggedIn={loggedIn} />} />
             <Route path="/movies/*" element={<Movics type='movie' app={app} />} />
             <Route path="/musics/*" element={<Movics type='music' app={app} />} />
             <Route path="/register" element={<Register setLoggedIn={setLoggedIn} />} />
