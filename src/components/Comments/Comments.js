@@ -22,7 +22,7 @@ const Comments = ({ app, movicid }) => {
             <Card style={{margin: "10px", padding: "10px"}}>
                 <CardHeader>Comments</CardHeader>
             {
-                (comments ? comments.map((comment, index) => <Comment key={index} username={comment.email} comment={comment.comment} />) : (<p>No Comments</p>))
+                (comments ? comments.map((comment, index) => <Comment key={index} displayName={comment.displayName} comment={comment.comment} avatar={comment.avatar} />) : (<p>No Comments</p>))
             }
             </Card>
 

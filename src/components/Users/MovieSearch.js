@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import { Search,  } from 'grommet-icons';
 import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, CardFooter, Button} from 'grommet';
-import AddComment from '../Movics/AddComment';
+import AddComment from '../Comments/AddComment';
 import { Link } from 'react-router-dom';
 
 

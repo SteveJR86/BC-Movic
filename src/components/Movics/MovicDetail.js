@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MovieAPI from './MovieAPI';
 import MusicAPISearch from './MusicAPISearch';
-import Comments from "./Comments";
+import Comments from '../Comments/Comments';
 
 const MovicDetail = (props) => {
     if (props.type === "movie") {
