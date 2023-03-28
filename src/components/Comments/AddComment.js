@@ -14,7 +14,8 @@ const AddCommentForm = ({ app, movicid, comments }) => {
                 onChange={nextValue => setValue(nextValue)}
                 onSubmit={({value}) => {
                     const newComment = {
-                        email: auth.currentUser.email,
+                        displayName: auth.currentUser.displayName,
+                        avatar: auth.currentUser.photoURL,
                         comment: value.comment
                     }
                     if(!comments){comments=[]}
