@@ -1,15 +1,16 @@
 import React from 'react';
 import { Avatar, Box, Heading,Card} from 'grommet';
-import {  User } from "grommet-icons";
+import { getAuth } from 'firebase/auth';
 
 
 const UserInfo = () => {
+    const user = getAuth().currentUser;
     return (
 
     <>
        <Box direction="row" gap="large" align="end">
-            <Avatar size="4xl" background="brand"><User color="text-strong" />
-            </Avatar><Heading >Chido</Heading>
+            <Avatar size="4xl" background="brand" src={user.photoURL}>
+            </Avatar><Heading >{user.displayName}</Heading>
         </Box>
 
         <Box pad="large" background="dark">
