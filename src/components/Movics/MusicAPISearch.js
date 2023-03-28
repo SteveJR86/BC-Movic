@@ -1,44 +1,61 @@
 import React, { useEffect, useState } from 'react';
-import { Card, CardBody, CardHeader, Image } from 'grommet';
+import { Card, CardBody, CardHeader, Image, Heading, Tag, Box } from 'grommet';
+import { Link } from 'react-router-dom';
+import "./movielist.css";
 
-function MusicAPI({ userArtist, userSong }) {
+const API_KEY = 'b8fb15424569c55a9e5e88ff5fd1a59a';
 
-    // Define trackInfo state with initial values for the track name, artist, and image
-    const [trackInfo, setTrackInfo] = useState({
+function MusicAPISearch(props) {
+    const [track, setTrack] = useState({
         name: '',
         artist: '',
-        image: ''
+        playcount: '',
+        listeners: '',
+        image: '',
+        wiki: ''
     });
-
-    // Fetch track information from Last.fm API when userArtist or userSong prop values change
     useEffect(() => {
-        const queryURL = `https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=b8fb15424569c55a9e5e88ff5fd1a59a&artist=${userArtist}&track=${userSong}&format=json`;
+        const queryURL = `https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=${API_KEY}&artist=${encodeURIComponent(props.artist)}&track=${encodeURIComponent(props.name)}&format=json`;
 
         fetch(queryURL)
             .then(response => response.json())
             .then(data => {
-                const track = data.track;
-                // Update trackInfo state with new values from API response
-                setTrackInfo({
-                    name: track.name,
-                    artist: track.artist.name,
-                    image: track.album.image[2]['#text']
+                const trackInfo = data.track;
+
+                setTrack({
+                    name: trackInfo.name,
+                    artist: trackInfo.artist.name,
+                    playcount: trackInfo.playcount,
+                    listeners: trackInfo.listeners,
+                    image: trackInfo.album ? trackInfo.album.image[3]['#text'] : '',
+                    wiki: trackInfo.wiki && trackInfo.wiki.summary ? trackInfo.wiki.summary.replace(/<a.*<\/a>/, '') : ''
                 });
             });
-    }, [userArtist, userSong]);
+    }, [props.artist, props.name]);
 
-    // Temporary Render the track information as a Grommet card with the track name, artist, and image as example of export
     return (
-        <div>
-            <Card height="medium" width="small" background="light-1">
-                <CardHeader pad="medium">{trackInfo.name}</CardHeader>
-                <CardBody pad="medium">{trackInfo.artist}
-                    <Image
-                        fit="cover"
-                        src={trackInfo.image} alt={trackInfo.artist} /></CardBody>
+        <div className="cards">
+            <Card Card style={{ margin: "20px" }} height="large" width="large" background="light-1">
+                <CardHeader pad="medium">
+                    <Heading size="medium">{track.name}</Heading>
+                </CardHeader>
+                <CardBody pad="medium">
+                    <div><Heading size="small">{track.artist}</Heading></div>
+                    <Box gap="medium" direction="row" align="center" justify="center" wrap pad="medium">
+                        {track.wiki}
+                    </Box>
+                    <Image fit="contain" src={track.image || 'https://i.ibb.co/JRjprxY/My-project-1-2.png'} alt={track.artist} />
+                    <Box gap="medium" direction="row" align="center" justify="center" wrap key="small" pad="medium">
+                        <Tag name="Play Count" value={track.playcount} />
+                        <Tag name="Listeners" value={track.listeners} />
+                    </Box>
+                </CardBody>
+                <Link to="../" role="button" className="btn btn-link">
+                    Go back to list
+                </Link>
             </Card>
         </div>
     );
 }
 
-export default MusicAPI;
+export default MusicAPISearch;

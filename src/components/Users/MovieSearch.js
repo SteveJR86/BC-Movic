@@ -44,12 +44,12 @@ import { Link } from 'react-router-dom';
     }
 
     return ( 
-    <><div>
+    <>
         <Box fill align="center" justify="start" pad="large">
    <Box width="medium" gap="medium">
-      <TextInput placeholder="search ..." value={query} onChange={onChange} reverse icon={<Search />} />  </Box>
+      <TextInput placeholder="search for movies or music..." value={query} onChange={onChange} reverse icon={<Search />} />  </Box>
   </Box>
-        </div>
+        
 
         <Box pad="large">
       <Grid columns={ 'medium' ? 'medium' : '75%'} gap="small">
