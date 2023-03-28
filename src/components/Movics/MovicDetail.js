@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MovieAPI from './MovieAPI';
+//import MovieAPI from './MovieAPI';
 import MusicAPISearch from './MusicAPISearch';
 import Comments from '../Comments/Comments';
+import MovieCard from './MovieCard';
 
 const MovicDetail = (props) => {
     if (props.type === "movie") {
         return (
             <div>
                 <h2>{props.name}</h2>
-                <div><MovieAPI name={props.name} /></div>
+                <div><MovieCard name={props.name} /></div>
                 <div><Comments app={props.app} movicid={props.name} /></div>
                 <Link to="../" role="button" className="btn btn-link">
                     Go back to list

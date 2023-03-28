@@ -14,7 +14,7 @@ const MovieAPI = (props) => {
              .then((response) => response.json())
              
               .then(data => {
-                //console.log(data)
+                console.log(data)
                 let topTenArray = []
 
                 for(let i = 0; i<data.results.length-10; i++) {
@@ -28,7 +28,7 @@ const MovieAPI = (props) => {
                 }
                 topTenArray.push(topTen);
                 setTopRated(topTenArray)
-                //console.log(topTenArray)
+              //console.log(topTenArray)
             }
             });
     }, []);
