@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# Getting Started with Create React App [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description ##
+This  of this social media application idea centred around music and movies created as part of the Bootcamp course with EDx. The application provides a unique social experience for users with similar interests in music and movies. The proposed application will offer a platform allowing users to connect, share their interests and views on music and movies, discover new content, and stay up to date on the latest news and trends in the entertainment industry.
+Features:
+User Profiles: Users can create personalised profiles highlighting their favourite music and movies. Users can also upload profile pictures, update their status, and share information about themselves.
+Social Feed: The application will have a feed feature that shows posts and updates from other users and content from popular music and movie publications. Including 10 ten polls on Music and Movies.
 
-## Available Scripts
+#### Movic User Story #### 
+* As a music and movie enthusiast, I want to connect with others who share my interests so that I can share my views and discover new content.
+* As a user of Movic, I want to create a personalised profile, highlight my favourite music and movies, upload a profile picture and share information about myself.
+* As a user of Movic, I want to be able to view a social feed that shows updates from other users, including polls on the top ten music and movies.
+* As a user of Movic, I want to connect with others who share my interests in music and movies. 
 
-In the project directory, you can run:
 
-### `npm start`
+* Link to Repo: https://github.com/SteveJR86/BC-Movic/tree/main
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Table of Contents ##
+•[Installation](#installation)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+•[Usage](#usage)
 
-### `npm test`
+•[License](#license)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+•[Contributing](#contributing)
 
-### `npm run build`
+•[Tests](#tests)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+•[Questions](#questions)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation ##
+### Git
+It is recomented to download Git if you are looking to interact with this public repo, Details on downloading this can be found here: https://github.com/git-guides/install-git
 
-### `npm run eject`
+### VS Code
+Visual Studio Code is a source-code editor (there are others available), The download for this can be found on; https://code.visualstudio.com/download.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Node.js.
+Node.js is an open source server environment which this application would run on, The download for this can be found on; https://nodejs.org/en/download/
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Clone the repository: ####
+git clone git@github.com:SteveJR86/BC-Movic.git
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Install the dependencies: ####
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Start the development server: #### 
+npm start
 
-## Learn More
+#### Open Appilcation in Browser #### 
+Open http://localhost:3000 to view the application in the browser.
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Npm Packages used:
 
-### Code Splitting
+#### Grommet
+provides the user interface and the inquiry session, documentation on installation and use can be found on; https://www.npmjs.com/package/inquirer 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  
+## Usage ##
+This is a public repo and available to be run locally with the packages noted in the Installation section. <br/> Clone project git clone ggit@github.com:SteveJR86/BC-Movic.git<br/> 
 
-### Analyzing the Bundle Size
+## License ##
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The source code for the site is licensed under the MIT License Please refer to the LICENSE in the repo.
 
-### Making a Progressive Web App
+## Contributing ##
+<br/> [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+Firstly, thanks for taking the time to contribute! We are happy for any contributions to this repo, with raising issues or reporting bugs.
+Please remain respectful to any community members inline with our code of [conduct](code_of_conduct.md) 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+We welcome contributions from anyone. Please follow these guidelines:
 
-### Advanced Configuration
+* Fork the project.
+* Create a new branch.
+* Make your changes and commit them.
+* Push to your branch.
+* Create a pull request.
+* Please be patient as we review pull requests. We will do our best to provide feedback in a timely manner.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+All taught and Source material were provided by © 2022 edX Boot Camps LLC.
 
-### Deployment
+   
+## Tests ##
+When Testing locally, please report any bugs or issues on this repository.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Questions ##
+if you wish to ask any questions on this project please reach out to tjhandson
