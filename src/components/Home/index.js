@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import Login from '../Login';
-import SearchMovie from "../Users/MovieSearch";
+import Selector from "./Selector";
 
 function Home({ loggedIn }) {
-  if (loggedIn) {
+  if (!loggedIn) {
     return (
-      <SearchMovie />
+      <Selector />
     )
   } else {
     return (
