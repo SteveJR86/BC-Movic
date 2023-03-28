@@ -3,13 +3,10 @@ import { Link } from 'react-router-dom';
 import Login from '../Login';
 import SearchMovie from "../Users/MovieSearch";
 
-
 function Home({ loggedIn }) {
   if (loggedIn) {
     return (
-      <>
       <SearchMovie />
-      </>
     )
   } else {
     return (
