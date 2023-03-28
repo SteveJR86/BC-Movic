@@ -1,18 +1,10 @@
 import React from 'react';
-<<<<<<< HEAD
-
-=======
 import { Avatar, Box, Heading,Card} from 'grommet';
 import {  User } from "grommet-icons";
->>>>>>> main
 
 
 const UserInfo = () => {
     return (
-<<<<<<< HEAD
-        <><h1>Profile</h1>
-       
-=======
 
     <>
        <Box direction="row" gap="large" align="end">
@@ -33,7 +25,6 @@ const UserInfo = () => {
         </Card>
         </Box>
 
->>>>>>> main
         </>
 
     )
