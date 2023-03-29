@@ -1,6 +1,6 @@
 import React from "react";
 import { Grommet, Box, Heading, Card, CardHeader, CardBody, CardFooter, Grid, Text, Avatar, Nav, Anchor } from 'grommet';
-import { Github, Linkedin, MailOption } from 'grommet-icons';
+import { Github } from 'grommet-icons';
 
 function About() {
     return (
@@ -54,15 +54,14 @@ function About() {
                                     <CardHeader pad="small" ><Heading level={3}>Chido Munyanyi</Heading></CardHeader>
                                     <CardBody pad="small">
                                         <Box direction="row" gap="small">
-                                            <Avatar size='5xl' src="https://i.ibb.co/DwxKsWG/My-project-1-9.jpg" />
+                                            <Avatar size='5xl' src="https://i.ibb.co/qrgyKb4/istockphoto-1366971230-612x612.jpg" />
                                         </Box>
                                     </CardBody>
                                     <CardFooter pad={{ vertical: "small" }} background="light-2">
                                         <Box direction="row" width='100%'>
                                             <Nav direction="row" background='none'>
                                                 <Anchor href="https://github.com/ChidoMunyanyi" icon={<Github />} hoverIndicator />
-                                                <Anchor href="#" icon={<Linkedin />} hoverIndicator />
-                                                <Anchor href="#" icon={<MailOption />} hoverIndicator />
+
                                             </Nav>
                                         </Box>
                                     </CardFooter>
@@ -71,14 +70,13 @@ function About() {
                                     <CardHeader pad="small" ><Heading level={3}>Steven Riley</Heading></CardHeader>
                                     <CardBody pad="small">
                                         <Box direction="row" gap="small">
-                                            <Avatar size='5xl' src="https://i.ibb.co/DwxKsWG/My-project-1-9.jpg" />
+                                            <Avatar size='5xl' src="https://i.ibb.co/TvFMdMh/istockphoto-1366971230-612x612-copy.jpg" />
                                         </Box></CardBody>
                                     <CardFooter pad={{ vertical: "small" }} background="light-2">
                                         <Box direction="row" width='100%'>
                                             <Nav direction="row">
                                                 <Anchor href="https://github.com/SteveJR86" icon={<Github />} hoverIndicator />
-                                                <Anchor href="#" icon={<Linkedin />} hoverIndicator />
-                                                <Anchor href="#" icon={<MailOption />} hoverIndicator />
+
                                             </Nav>
                                         </Box>
                                     </CardFooter>
@@ -87,14 +85,13 @@ function About() {
                                     <CardHeader pad="small" ><Heading level={3}>Thomas Hands</Heading></CardHeader>
                                     <CardBody pad="small">
                                         <Box direction="row" gap="small">
-                                            <Avatar size='5xl' src="https://i.ibb.co/DwxKsWG/My-project-1-9.jpg" />
+                                            <Avatar size='5xl' src="https://i.ibb.co/smNRLz4/istockphoto-1366971230-612x612-copy-2.jpg" />
                                         </Box></CardBody>
                                     <CardFooter pad={{ vertical: "small" }} background="light-2">
                                         <Box direction="row" width='100%'>
                                             <Nav direction="row">
                                                 <Anchor href="https://github.com/tjhandson" icon={<Github />} hoverIndicator />
-                                                <Anchor href="https://www.linkedin.com/in/thomas-hands#" icon={<Linkedin />} hoverIndicator />
-                                                <Anchor href="mailto:thomjhands@gmail.com" icon={<MailOption />} hoverIndicator />
+
                                             </Nav>
                                         </Box>
                                     </CardFooter>
@@ -103,7 +100,7 @@ function About() {
                                     <CardHeader pad="small" ><Heading level={3}>Yasha Zamanpour Kolouee</Heading></CardHeader>
                                     <CardBody pad="small" >
                                         <Box direction="row" gap="small">
-                                            <Avatar size='5xl' src="https://i.ibb.co/DwxKsWG/My-project-1-9.jpg" />
+                                            <Avatar size='5xl' src="https://i.ibb.co/PMt3Fft/istockphoto-1366971230-612x612-copy-3.jpg" />
                                         </Box>
 
                                     </CardBody>
@@ -111,8 +108,7 @@ function About() {
                                         <Box direction="row" width='100%'>
                                             <Nav direction="row">
                                                 <Anchor href="https://github.com/zamanpour" icon={<Github />} hoverIndicator />
-                                                <Anchor href="#" icon={<Linkedin />} hoverIndicator />
-                                                <Anchor href="#" icon={<MailOption />} hoverIndicator />
+
                                             </Nav>
                                         </Box>
                                     </CardFooter>
