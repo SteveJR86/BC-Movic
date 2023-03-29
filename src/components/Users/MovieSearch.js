@@ -55,9 +55,9 @@ import { Link } from 'react-router-dom';
       <Grid columns={ 'medium' ? 'medium' : '75%'} gap="small">
         {results.map(results => { 
             return (
-            <Card key={results.id} className='movie'>
+            <Card key={results.id} className='movie' background='background-front'>
                 <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
-                <Button color="dark-1"  onClick={AddtoFavourites}>
+                <Button  hoverIndicator="focus" color='focus'  onClick={AddtoFavourites}>
                   <Link to={{ 
                     pathname:`./UserInfo/${results.id}`,
                     // state: {movie}
@@ -78,7 +78,7 @@ import { Link } from 'react-router-dom';
     )
     }
 
-//primary icon={<Add color="brand" />} label="Add to Favourites"
+
   
   
   
