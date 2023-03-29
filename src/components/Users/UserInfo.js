@@ -16,35 +16,35 @@ const UserInfo = () => {
         ref(database, "favourites/" + user.displayName), (snapshot) => {
             const data = snapshot.val()
             setFavourites(data);
-            console.log(favourites);
+            
     }), [])
+    console.log(favourites)
     return (
+        <>
+        <Box direction="row" gap="large" align="end">
+            <Avatar size="4xl" background="brand" src={user.photoURL}>
+            </Avatar><Heading >{user.displayName}</Heading>
+        </Box>
 
+        <Box pad="large" background="dark">
+        <Grid columns={ 'medium' ? 'medium' : '75%'} gap="small">
+            {favourites.map((results => { 
+                return (
+                <Card >
+                    <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
+                    </CardHeader>
+                    <CardBody pad="medium">{results.plot}
+                        <Image src={`${results.poster}`}  alt={results.title} fit="contain"/>{results.releaseDate}
+                    </CardBody>
+                    <CardFooter pad="medium"></CardFooter>
+            
+                </Card>
+                )
 
-//     <>
-//        <Box direction="row" gap="large" align="end">
-//             <Avatar size="4xl" background="brand" src={user.photoURL}>
-//             </Avatar><Heading >{user.displayName}</Heading>
-//         </Box>
-
-//         <Box pad="large" background="dark">
-//       <Grid columns={ 'medium' ? 'medium' : '75%'} gap="small">
-//         {favouriteArray.map((results => { 
-//             return (
-//             <Card >
-//                 <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
-//                </CardHeader>
-//                 <CardBody pad="medium">{results.plot}
-//                     <Image src={`${results.poster}`}  alt={results.title} fit="contain"/>{results.releaseDate}</CardBody>
-//                     <CardFooter pad="medium"><AddComment/></CardFooter>
-           
-//           </Card>
-//             )
-
-//         }))}
-//      </Grid>
-//    </Box> 
-    <div>
+            }))}
+        </Grid>
+    </Box> 
+    
     <Box>
         <Card>
         <h1>Favourite Movies</h1>
@@ -58,7 +58,7 @@ const UserInfo = () => {
         </Card>
         </Box>
 
-        </div>
+        </>
 
     )
 }

@@ -46,12 +46,13 @@ import { getAuth,} from 'firebase/auth';
       console.log(movietoSave)
       const favouriteArray = []
       favouriteArray.push(movietoSave)
-      setFavourites(favouriteArray)
-      
-     
-      console.log(favouriteArray)
+      const user = getAuth().currentUser.displayName;
+      console.log(favourites)
       const database = getDatabase();
-     set(ref(database, "favourites/" + getAuth().currentUser.displayName),favourites) 
+      setFavourites(favouriteArray)
+      console.log(favourites);
+      set(ref(database, "favourites/" + user),favourites)
+      
 
 
     }
