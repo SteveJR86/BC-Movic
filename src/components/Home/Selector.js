@@ -19,7 +19,7 @@ function Selector() {
     return (
         <Fragment>
             <Box fill align="center" justify="start" pad="medium">
-                <Heading size="small">Find Your Favourite Movie or Song</Heading>
+                <Heading background="focus" size="small">Find Your Favourite Movie or Song</Heading>
                 <Select value={value}
                     options={["movies", "music"]}
                     onChange={handleValueChange}
