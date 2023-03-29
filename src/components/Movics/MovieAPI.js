@@ -40,8 +40,8 @@ const MovieAPI = (props) => {
 
         <div className="cards">
             <Carousel controls="arrows" height="large" width="large">
-                {topRated.map(results => {
-                    return (<div>
+                {topRated.map((results, index) => {
+                    return (<div key={index} >
                         <Card style={{ margin: "20px" }} height="large" width="large" background="light-1">
                             <CardHeader pad="medium"><Heading size="medium">
 
