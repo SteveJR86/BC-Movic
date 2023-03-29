@@ -35,21 +35,20 @@ import { getAuth,} from 'firebase/auth';
         releaseDate: data.results[i].release_date,   
     }
     movieSearchArray.push(movieSearch)
-    //console.log(movieSearchArray)
+    
     setResults(movieSearchArray)
     }}) 
     }; 
    
     const AddtoFavourites = (movieID) => {
       const movietoSave = results.find(results=>results.movieID===movieID)
-      console.log(movietoSave)
-      // const favouriteArray = []
-      // favouriteArray.push(movietoSave)
+      
+     
       const user = getAuth().currentUser.displayName;
-      console.log(favourites)
+      
       const database = getDatabase();
       setFavourites(favourites.push(movietoSave))
-      console.log(favourites);
+      
       set(ref(database, "favourites/" + user),favourites)
       
 
