@@ -77,8 +77,8 @@ function About() {
                                         <Box direction="row" width='100%'>
                                             <Nav direction="row">
                                                 <Anchor href="https://github.com/SteveJR86" icon={<Github />} hoverIndicator />
-                                                <Anchor href="#" icon={<Linkedin />} hoverIndicator />
-                                                <Anchor href="#" icon={<MailOption />} hoverIndicator />
+                                                <Anchor href="https://www.linkedin.com/in/steven-riley-dev/" icon={<Linkedin />} hoverIndicator />
+                                                <Anchor href="mailto:steven.j.riley@gmail.com" icon={<MailOption />} hoverIndicator />
                                             </Nav>
                                         </Box>
                                     </CardFooter>
