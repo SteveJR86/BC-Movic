@@ -36,21 +36,22 @@ import { getAuth,} from 'firebase/auth';
         releaseDate: data.results[i].release_date,   
     }
     movieSearchArray.push(movieSearch)
-    console.log(movieSearchArray)
+    //console.log(movieSearchArray)
     setResults(movieSearchArray)
     }}) 
     }; 
-       //app,results,= might have to readd
+   
     const AddtoFavourites = (movieID) => {
       const movietoSave = results.find(results=>results.movieID===movieID)
       console.log(movietoSave)
       const favouriteArray = []
-      favourites.push(movietoSave)
+      favouriteArray.push(movietoSave)
+      setFavourites(favouriteArray)
       
      
-      console.log(favourites)
-    //   const database = getDatabase(app);
-    //  set(ref(database, "favourites/" + getAuth().currentUser.email),favourites) 
+      console.log(favouriteArray)
+      const database = getDatabase();
+     set(ref(database, "favourites/" + getAuth().currentUser.displayName),favourites) 
 
 
     }
@@ -69,7 +70,7 @@ import { getAuth,} from 'firebase/auth';
             return (
             <Card key={results.id} className='movie'>
                 <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
-                <Button color="dark-1"  onClick={()=>AddtoFavourites(results.movieID)}>
+                <Button color="dark-1"  onClick={()=> AddtoFavourites(results.movieID)}>
                   <Link to={{ 
                     pathname:`./UserInfo/${results.id}`,
                     // state: {movie}
