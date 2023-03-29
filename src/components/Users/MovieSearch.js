@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import { Search,  } from 'grommet-icons';
-import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, CardFooter, Button} from 'grommet';
-import AddComment from '../Comments/AddComment';
+import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, Button} from 'grommet';
 import { Link } from 'react-router-dom';
 import { getDatabase, ref, set } from "firebase/database";
 import { getAuth,} from 'firebase/auth';
@@ -67,9 +66,9 @@ import { getAuth,} from 'firebase/auth';
 
         <Box pad="large">
       <Grid columns={ 'medium' ? 'medium' : '75%'} gap="small">
-        {results.map(results => { 
+        {results.map((results, index) => { 
             return (
-            <Card key={results.id} className='movie'>
+            <Card key={index} className='movie'>
                 <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
                 <Button color="dark-1"  onClick={()=> AddtoFavourites(results.movieID)}>
                   <Link to={{ 
@@ -79,7 +78,6 @@ import { getAuth,} from 'firebase/auth';
                     </Button></CardHeader>
                 <CardBody pad="medium">{results.plot}
                     <Image src={`${results.poster}`}  alt={results.title} fit="contain"/>{results.releaseDate}</CardBody>
-                    <CardFooter pad="medium"><AddComment/></CardFooter>
            
           </Card>
             )
