@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import { Search,  } from 'grommet-icons';
-import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, Button} from 'grommet';
+import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, Button, CardFooter} from 'grommet';
 import { Link } from 'react-router-dom';
-
+import AddComment from '../Comments/AddComment'
 
 
 
@@ -54,9 +54,9 @@ import { Link } from 'react-router-dom';
       <Grid columns={ 'medium' ? 'medium' : '75%'} gap="small">
         {results.map((results, index) => { 
             return (
-            <Card key={index} className='movie'>
+            <Card key={index} className='movie' background='background-front'>
                 <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
-                <Button color="dark-1"  onClick={AddtoFavourites}>
+                <Button  hoverIndicator="focus" color='focus'  onClick={AddtoFavourites}>
                   <Link to={{ 
                     pathname:`./UserInfo/${results.id}`,
                     // state: {movie}
@@ -64,6 +64,7 @@ import { Link } from 'react-router-dom';
                     </Button></CardHeader>
                 <CardBody pad="medium">{results.plot}
                     <Image src={`${results.poster}`}  alt={results.title} fit="contain"/>{results.releaseDate}</CardBody>
+                    <CardFooter ><AddComment/></CardFooter>
            
           </Card>
             )
@@ -76,7 +77,7 @@ import { Link } from 'react-router-dom';
     )
     }
 
-//primary icon={<Add color="brand" />} label="Add to Favourites"
+
   
   
   

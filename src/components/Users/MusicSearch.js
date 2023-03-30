@@ -93,9 +93,10 @@ const SearchMusic = () => {
             <Box pad="large">
                 <Grid columns={window.innerWidth >= 768 ? 'medium' : '75%'} gap="small">
                     {searchResults.map((result, index) => (
-                        <Card key={index}>
+                        <Card key={index} background='background-front'>
                             <CardHeader pad="medium">
                                 <Heading size="medium">{result.name}</Heading>
+
                                 <Button color='dark-1' onClick={() => handleAddToFavorites(result.name)}>
                                     <Link to={{
                                         pathname: `./UserInfo/${result.name.replace("?", "")}`,
