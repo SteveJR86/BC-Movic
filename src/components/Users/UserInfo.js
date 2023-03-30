@@ -47,7 +47,7 @@ const UserInfo = () => {
                         <Grid columns={'medium' ? 'medium' : '75%'} gap="small">
                             {favourites ? favourites.map((results, index )=> {
                                 return (
-                                    <Card key={index}>
+                                    <Card key={index} background='background-front'>
                                         <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
                                         </CardHeader>
                                         <CardBody pad="medium">{results.plot}
@@ -70,7 +70,7 @@ const UserInfo = () => {
                     <Box pad="large">
                         <Grid columns={window.innerWidth >= 768 ? 'medium' : '75%'} gap="small">
                             {favouritesongs ? favouritesongs.map((result, index) => (
-                                <Card key={index}>
+                                <Card key={index} background='background-front'>
                                     <CardHeader pad="medium">
                                         <Heading size="medium">{result.name}</Heading>
                                     </CardHeader>
