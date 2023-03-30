@@ -48,7 +48,8 @@ import { getAuth } from 'firebase/auth';
 
       onValue(favouritesRef, (snapshot) => {
           const data = snapshot.val();
-          setFavourites(data);
+          if(data){setFavourites(data)};
+          
       });
 
   }, [database, user.displayName]);
