@@ -44,7 +44,7 @@ const UserInfo = () => {
                     <h1>Favourite Movies</h1>
                     <Box pad="large" background="dark">
                         <Grid columns={'medium' ? 'medium' : '75%'} gap="small">
-                            {favourites.map((results => {
+                            {favourites ? favourites.map((results => {
                                 return (
                                     <Card >
                                         <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
@@ -57,7 +57,7 @@ const UserInfo = () => {
                                     </Card>
                                 )
 
-                            }))}
+                            })) : <p>No Favourites</p> }
                         </Grid>
                     </Box>
 
@@ -68,7 +68,7 @@ const UserInfo = () => {
                     <h1>Favourite Songs</h1>
                     <Box pad="large">
                         <Grid columns={window.innerWidth >= 768 ? 'medium' : '75%'} gap="small">
-                            {favouritesongs.map((result, index) => (
+                            {favouritesongs ? favouritesongs.map((result, index) => (
                                 <Card key={index}>
                                     <CardHeader pad="medium">
                                         <Heading size="medium">{result.name}</Heading>
@@ -81,7 +81,7 @@ const UserInfo = () => {
                                         <Image src={result.image || 'https://i.ibb.co/JRjprxY/My-project-1-2.png'} alt={`${result.artist} - ${result.name}`} fit="contain" />
                                     </CardBody>
                                 </Card>
-                            ))}
+                            )) : <p>No Favourites</p>}
                         </Grid>
                     </Box>
                 </Card>
