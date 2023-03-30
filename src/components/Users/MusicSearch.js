@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Search, } from 'grommet-icons';
 import { Box, TextInput, Card, Image, Heading, CardHeader, CardBody, Grid, Button } from 'grommet';
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set, onValue } from "firebase/database";
 import { getAuth, } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 
@@ -64,7 +64,18 @@ const SearchMusic = () => {
                 });
             })
     };
+    const database = getDatabase();
+    const user = getAuth().currentUser;
+    useEffect(() => {
+    
+        const songsRef = ref(database, "favouritesongs/" + user.displayName);
 
+
+        onValue(songsRef, (snapshot) => {
+            const data = snapshot.val();
+            if(data) {setFavouritesongs(data)};
+        });
+    }, [database, user.displayName]);
 
     const handleAddToFavorites = (name) => {
         console.log(name)
