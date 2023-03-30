@@ -17,9 +17,10 @@ function Selector() {
     };
 
     return (
-        <Fragment>
+        <Box background='neutral-2'>
+        <Fragment >
             <Box fill align="center" justify="start" pad="medium">
-                <Heading size="small">Find Your Favourite Movie or Song</Heading>
+                <Heading  size="medium">Find Your Favourite Movie or Song</Heading>
                 <Select value={value}
                     options={["movies", "music"]}
                     onChange={handleValueChange}
@@ -27,6 +28,7 @@ function Selector() {
             </Box>
             {result === 'SearchMovie' ? <SearchMovie /> : <SearchMusic />}
         </Fragment>
+        </Box>
     );
 }
 

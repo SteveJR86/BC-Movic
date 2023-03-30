@@ -1,9 +1,10 @@
 import {useState} from 'react';
 import { Search,  } from 'grommet-icons';
-import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, Button} from 'grommet';
+import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, Button, CardFooter} from 'grommet';
 import { Link } from 'react-router-dom';
 import { getDatabase, ref, set } from "firebase/database";
 import { getAuth,} from 'firebase/auth';
+import AddComment from '../Comments/AddComment'
 
 
 
@@ -67,9 +68,10 @@ import { getAuth,} from 'firebase/auth';
       <Grid columns={ 'medium' ? 'medium' : '75%'} gap="small">
         {results.map((results, index) => { 
             return (
-            <Card key={index} className='movie'>
+            <Card key={index} className='movie' background='background-front'>
                 <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
                 <Button color="dark-1"  onClick={()=> AddtoFavourites(results.movieID)}>
+
                   <Link to={{ 
                     pathname:`./UserInfo/${results.id}`,
                     // state: {movie}
@@ -77,6 +79,7 @@ import { getAuth,} from 'firebase/auth';
                     </Button></CardHeader>
                 <CardBody pad="medium">{results.plot}
                     <Image src={`${results.poster}`}  alt={results.title} fit="contain"/>{results.releaseDate}</CardBody>
+                    <CardFooter ><AddComment/></CardFooter>
            
           </Card>
             )
@@ -89,7 +92,7 @@ import { getAuth,} from 'firebase/auth';
     )
     }
 
-//primary icon={<Add color="brand" />} label="Add to Favourites"
+
   
   
   

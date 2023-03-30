@@ -1,14 +1,17 @@
-import { useState } from 'react';
-import { Search,} from 'grommet-icons';
+
+import { useState, useEffect } from 'react';
+import { Search, } from 'grommet-icons';
 import { Box, TextInput, Card, Image, Heading, CardHeader, CardBody, Grid, Button } from 'grommet';
-import { getDatabase, ref, set } from "firebase/database";
-import { getAuth,} from 'firebase/auth';
+import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getAuth, } from 'firebase/auth';
+
 import { Link } from 'react-router-dom';
 
 const SearchMusic = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
-    const [favourites, setFavourites] =useState([])
+    const [favouritesongs, setFavouritesongs] = useState([])
+
 
     const handleInputChange = (e) => {
         e.preventDefault();
@@ -32,8 +35,6 @@ const SearchMusic = () => {
                     trackID: track.id,
                     name: track.name,
                     artist: track.artist,
-                    playcount: track.playcount,
-                    listeners: track.listeners,
                     image: '',
                     wiki: '',
                 }));
@@ -67,22 +68,34 @@ const SearchMusic = () => {
                 });
             })
     };
+    const database = getDatabase();
+    const user = getAuth().currentUser;
+    useEffect(() => {
+    
+        const songsRef = ref(database, "favouritesongs/" + user.displayName);
 
+        onValue(songsRef, (snapshot) => {
+            const data = snapshot.val();
+            if(data) {setFavouritesongs(data)};
+        });
+    }, [database, user.displayName]);
 
-    const handleAddToFavorites = (trackID) => {
-        console.log(trackID)
-        
-        const songtoSave = searchResults.find(searchResults=>searchResults.trackID===trackID);
+    const handleAddToFavorites = (name) => {
+        console.log(name)
+
+        const songtoSave = searchResults.find(searchResults => searchResults.name === name);
+
 
         const user = getAuth().currentUser.displayName;
 
         const database = getDatabase();
-      setFavourites(favourites.push(songtoSave))
-      
-      set(ref(database, "favourites/" + user),favourites)
-        
+        setFavouritesongs(favouritesongs.push(songtoSave))
+
+        set(ref(database, "favouritesongs/" + user), favouritesongs)
+
         // Perform some action to add the music to favorites
-        console.log(favourites);
+        console.log(favouritesongs);
+
     };
 
     return (
@@ -96,14 +109,15 @@ const SearchMusic = () => {
             <Box pad="large">
                 <Grid columns={window.innerWidth >= 768 ? 'medium' : '75%'} gap="small">
                     {searchResults.map((result, index) => (
-                        <Card key={index}>
+                        <Card key={index} background='background-front'>
                             <CardHeader pad="medium">
                                 <Heading size="medium">{result.name}</Heading>
-                                <Button color='dark-1' onClick={() => handleAddToFavorites(result)} ><Link to={{ 
-                    pathname:`./UserInfo/${result.name}`,
-                    // state: {movie}
-                  }}></Link>Add to Favourites
-                    </Button>
+
+                                <Button color='dark-1' onClick={() => handleAddToFavorites(result.name)}>
+                                    <Link to={{
+                                        pathname: `./UserInfo/${result.name.replace("?", "")}`,
+                                    }}></Link>Add to Favourites
+                                </Button>
                             </CardHeader>
                             <CardBody pad="medium">
                                 <div><Heading size="small">{result.artist}</Heading></div>
