@@ -82,7 +82,7 @@ import AddComment from '../Comments/AddComment'
             return (
             <Card key={index} className='movie' background='background-front'>
                 <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
-                <Button color="dark-1"  onClick={()=> AddtoFavourites(results.movieID)}>
+                <Button hoverIndicator='focus' onClick={()=> AddtoFavourites(results.movieID)}>
 
                   <Link to={{ 
                     pathname:`./UserInfo/${results.id}`,
