@@ -6,7 +6,7 @@ const MovicList = (props) => {
   if (props.type === "movie") {
     return (
       <div>
-        <h2>Movie List</h2>
+        <h2>Top 10 Movies</h2>
         <div><MovieAPI /></div>
       </div>
     )
@@ -14,7 +14,7 @@ const MovicList = (props) => {
   } else if (props.type === "music") {
     return (
       <div>
-        <h2>Music List</h2>
+        <h2>Top 10 Songs</h2>
         <div><MusicAPI /></div>
       </div>
     )
