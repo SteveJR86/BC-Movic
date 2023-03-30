@@ -45,9 +45,9 @@ const UserInfo = () => {
                     <h1>Favourite Movies</h1>
                     <Box pad="large" background="dark">
                         <Grid columns={'medium' ? 'medium' : '75%'} gap="small">
-                            {favourites ? favourites.map((results => {
+                            {favourites ? favourites.map((results, index )=> {
                                 return (
-                                    <Card >
+                                    <Card key={index}>
                                         <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
                                         </CardHeader>
                                         <CardBody pad="medium">{results.plot}
@@ -58,7 +58,7 @@ const UserInfo = () => {
                                     </Card>
                                 )
 
-                            })) : <p>No Favourites</p> }
+                            }) : <p>No Favourites</p> }
                         </Grid>
                     </Box>
 
