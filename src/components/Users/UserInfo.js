@@ -36,7 +36,7 @@ const UserInfo = () => {
         <>
             <Box direction="row" gap="large" align="end">
             {user.photoURL ? <Avatar size='4xl' src={user.photoURL} /> : <Avatar size='4xl' background='dark-2'>{user.displayName[0]}</Avatar>}
-            <Heading >{user.displayName}</Heading>
+            <Heading size='large'>{user.displayName}</Heading>
             </Box>
 
 
@@ -47,7 +47,7 @@ const UserInfo = () => {
                         <Grid columns={'medium' ? 'medium' : '75%'} gap="small">
                             {favourites ? favourites.map((results, index )=> {
                                 return (
-                                    <Card key={index}>
+                                    <Card key={index} background='background-front'>
                                         <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
                                         </CardHeader>
                                         <CardBody pad="medium">{results.plot}
@@ -70,7 +70,7 @@ const UserInfo = () => {
                     <Box pad="large">
                         <Grid columns={window.innerWidth >= 768 ? 'medium' : '75%'} gap="small">
                             {favouritesongs ? favouritesongs.map((result, index) => (
-                                <Card key={index}>
+                                <Card key={index} background='background-front'>
                                     <CardHeader pad="medium">
                                         <Heading size="medium">{result.name}</Heading>
                                     </CardHeader>

@@ -113,7 +113,7 @@ const SearchMusic = () => {
                             <CardHeader pad="medium">
                                 <Heading size="medium">{result.name}</Heading>
 
-                                <Button color='dark-1' onClick={() => handleAddToFavorites(result.name)}>
+                                <Button hoverIndicator="focus" onClick={() => handleAddToFavorites(result.name)}>
                                     <Link to={{
                                         pathname: `./UserInfo/${result.name.replace("?", "")}`,
                                     }}></Link>Add to Favourites

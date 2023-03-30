@@ -1,10 +1,10 @@
 import {useState, useEffect} from 'react';
 import { Search,  } from 'grommet-icons';
-import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, Button, CardFooter} from 'grommet';
+import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, Button } from 'grommet';
 import { Link } from 'react-router-dom';
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import { getAuth } from 'firebase/auth';
-import AddComment from '../Comments/AddComment'
+
 
 
 
@@ -82,7 +82,7 @@ import AddComment from '../Comments/AddComment'
             return (
             <Card key={index} className='movie' background='background-front'>
                 <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
-                <Button color="dark-1"  onClick={()=> AddtoFavourites(results.movieID)}>
+                <Button hoverIndicator='focus' onClick={()=> AddtoFavourites(results.movieID)}>
 
                   <Link to={{ 
                     pathname:`./UserInfo/${results.id}`,
@@ -91,7 +91,7 @@ import AddComment from '../Comments/AddComment'
                     </Button></CardHeader>
                 <CardBody pad="medium">{results.plot}
                     <Image src={`${results.poster}`}  alt={results.title} fit="contain"/>{results.releaseDate}</CardBody>
-                    <CardFooter ><AddComment/></CardFooter>
+
            
           </Card>
             )

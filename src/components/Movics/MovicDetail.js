@@ -9,7 +9,7 @@ const MovicDetail = (props) => {
     if (props.type === "movie") {
         return (
             <div>
-                <h2>{props.name}</h2>
+
                 <div><MovieCard name={props.name} /></div>
                 <div><Comments app={props.app} movicid={props.name} /></div>
                 <Link to="../" role="button" className="btn btn-link">
@@ -22,7 +22,7 @@ const MovicDetail = (props) => {
     } else if (props.type === "music") {
         return (
             <div>
-                <h2>{props.name[0]}</h2>
+
                 <div><MusicAPISearch name={props.name[0]} artist={props.name[1]} /></div>
                 <div><Comments app={props.app} movicid={props.name} /></div>
                 <Link to="../" role="button" className="btn btn-link">

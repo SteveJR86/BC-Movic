@@ -7,7 +7,6 @@ const Movics = (props) => {
     const location = useLocation();
     return (
         <div>
-            {props.type}
             <Routes>
                 <Route path="" element={<MovicList type={props.type} />} />
                 <Route path="*" element={<MovicDetail name={location.state} type={props.type} app={props.app} />} />
