@@ -43,7 +43,7 @@ function App() {
   useEffect(() => {
     const auth = getAuth(app);
     auth.onAuthStateChanged((user) => {
-      if(user){
+      if (user) {
         setLoggedIn(true)
       }
     })
