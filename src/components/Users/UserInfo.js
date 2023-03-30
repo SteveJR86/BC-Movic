@@ -9,6 +9,7 @@ const UserInfo = () => {
     const user = getAuth().currentUser;
 
     const database = getDatabase();
+
     const [favourites, setFavourites] = useState([]);
     const [favouritesongs, setFavouritesongs] = useState([])
 

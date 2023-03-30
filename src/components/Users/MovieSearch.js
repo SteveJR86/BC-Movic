@@ -2,7 +2,10 @@ import {useState} from 'react';
 import { Search,  } from 'grommet-icons';
 import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, Button, CardFooter} from 'grommet';
 import { Link } from 'react-router-dom';
+import { getDatabase, ref, set } from "firebase/database";
+import { getAuth,} from 'firebase/auth';
 import AddComment from '../Comments/AddComment'
+
 
 
 
@@ -26,18 +29,29 @@ import AddComment from '../Comments/AddComment'
     for(let i = 0; i<data.results.length; i++) {
 
     const movieSearch = {
+        movieID: data.results[i].id,
         name: data.results[i].title,
         poster: `https://image.tmdb.org/t/p/original/${data.results[i].poster_path}`,
         plot: data.results[i].overview,
         releaseDate: data.results[i].release_date,   
     }
     movieSearchArray.push(movieSearch)
+    
     setResults(movieSearchArray)
-    }})
+    }}) 
     }; 
-
-    const AddtoFavourites = (results) => {
-      setFavourites([...favourites, results])
+   
+    const AddtoFavourites = (movieID) => {
+      const movietoSave = results.find(results=>results.movieID===movieID)
+      
+     
+      const user = getAuth().currentUser.displayName;
+      
+      const database = getDatabase();
+      setFavourites(favourites.push(movietoSave))
+      
+      set(ref(database, "favourites/" + user),favourites)
+      
 
 
     }
@@ -56,7 +70,8 @@ import AddComment from '../Comments/AddComment'
             return (
             <Card key={index} className='movie' background='background-front'>
                 <CardHeader pad="medium"><Heading size="medium">{results.name}</Heading>
-                <Button  hoverIndicator="focus" color='focus'  onClick={AddtoFavourites}>
+                <Button color="dark-1"  onClick={()=> AddtoFavourites(results.movieID)}>
+
                   <Link to={{ 
                     pathname:`./UserInfo/${results.id}`,
                     // state: {movie}

@@ -1,14 +1,17 @@
+
 import { useState, useEffect } from 'react';
 import { Search, } from 'grommet-icons';
 import { Box, TextInput, Card, Image, Heading, CardHeader, CardBody, Grid, Button } from 'grommet';
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import { getAuth, } from 'firebase/auth';
+
 import { Link } from 'react-router-dom';
 
 const SearchMusic = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [favouritesongs, setFavouritesongs] = useState([])
+
 
     const handleInputChange = (e) => {
         e.preventDefault();
@@ -29,6 +32,7 @@ const SearchMusic = () => {
             .then(response => response.json())
             .then(data => {
                 const tracks = data.results.trackmatches.track.map((track) => ({
+                    trackID: track.id,
                     name: track.name,
                     artist: track.artist,
                     image: '',
@@ -70,7 +74,6 @@ const SearchMusic = () => {
     
         const songsRef = ref(database, "favouritesongs/" + user.displayName);
 
-
         onValue(songsRef, (snapshot) => {
             const data = snapshot.val();
             if(data) {setFavouritesongs(data)};
@@ -82,6 +85,7 @@ const SearchMusic = () => {
 
         const songtoSave = searchResults.find(searchResults => searchResults.name === name);
 
+
         const user = getAuth().currentUser.displayName;
 
         const database = getDatabase();
@@ -91,6 +95,7 @@ const SearchMusic = () => {
 
         // Perform some action to add the music to favorites
         console.log(favouritesongs);
+
     };
 
     return (
