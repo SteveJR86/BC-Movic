@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { Search, Add } from 'grommet-icons';
-import { Box, TextInput, Card, Image, Heading, CardHeader, CardBody, Grid, Button, CardFooter } from 'grommet';
-import AddComment from '../Comments/AddComment';
+import { Search, } from 'grommet-icons';
+import { Box, TextInput, Card, Image, Heading, CardHeader, CardBody, Grid, Button } from 'grommet';
+import { getDatabase, ref, set } from "firebase/database";
+import { getAuth, } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 
 const SearchMusic = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
+    const [favouritesongs, setFavouritesongs] = useState([])
 
     const handleInputChange = (e) => {
         e.preventDefault();
@@ -28,8 +31,6 @@ const SearchMusic = () => {
                 const tracks = data.results.trackmatches.track.map((track) => ({
                     name: track.name,
                     artist: track.artist,
-                    playcount: track.playcount,
-                    listeners: track.listeners,
                     image: '',
                     wiki: '',
                 }));
@@ -65,9 +66,20 @@ const SearchMusic = () => {
     };
 
 
-    const handleAddToFavorites = (music) => {
+    const handleAddToFavorites = (name) => {
+        console.log(name)
+
+        const songtoSave = searchResults.find(searchResults => searchResults.name === name);
+
+        const user = getAuth().currentUser.displayName;
+
+        const database = getDatabase();
+        setFavouritesongs(favouritesongs.push(songtoSave))
+
+        set(ref(database, "favouritesongs/" + user), favouritesongs)
+
         // Perform some action to add the music to favorites
-        console.log('Added to favorites:', music);
+        console.log(favouritesongs);
     };
 
     return (
@@ -84,7 +96,12 @@ const SearchMusic = () => {
                         <Card key={index} background='background-front'>
                             <CardHeader pad="medium">
                                 <Heading size="medium">{result.name}</Heading>
-                                <Button hoverIndicator='focus' color="dark-1" primary icon={<Add color="brand" />} label="Add to Favorites" onClick={() => handleAddToFavorites(result)} />
+
+                                <Button color='dark-1' onClick={() => handleAddToFavorites(result.name)}>
+                                    <Link to={{
+                                        pathname: `./UserInfo/${result.name.replace("?", "")}`,
+                                    }}></Link>Add to Favourites
+                                </Button>
                             </CardHeader>
                             <CardBody pad="medium">
                                 <div><Heading size="small">{result.artist}</Heading></div>
@@ -93,7 +110,6 @@ const SearchMusic = () => {
                                 </Box>
                                 <Image src={result.image || 'https://i.ibb.co/JRjprxY/My-project-1-2.png'} alt={`${result.artist} - ${result.name}`} fit="contain" />
                             </CardBody>
-                            <CardFooter><AddComment/></CardFooter>
                         </Card>
                     ))}
                 </Grid>
