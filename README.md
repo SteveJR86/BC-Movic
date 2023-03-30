@@ -14,7 +14,7 @@ Social Feed: The application will have a feed feature that shows posts and updat
 
 
 * Link to Repo: https://github.com/SteveJR86/BC-Movic/tree/main
-* Link to Repo: https://docs.google.com/presentation/d/1M_5tHX9alBLKTVYUj6u7c3miR0bolRLFju2YxoQ0-JM/edit?usp=sharing
+* Link to Presentation: https://docs.google.com/presentation/d/1M_5tHX9alBLKTVYUj6u7c3miR0bolRLFju2YxoQ0-JM/edit?usp=sharing
 
 ![alt text](https://i.ibb.co/vJMwcvB/Screenshot-2023-03-30-at-14-28-55.png)
 
