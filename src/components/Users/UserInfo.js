@@ -17,7 +17,7 @@ const UserInfo = () => {
             const data = snapshot.val()
             setFavourites(data);
             
-    }), [])
+    }), [database, user.displayName])
     
     return (
         <>
