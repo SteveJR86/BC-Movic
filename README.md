@@ -14,6 +14,9 @@ Social Feed: The application will have a feed feature that shows posts and updat
 
 
 * Link to Repo: https://github.com/SteveJR86/BC-Movic/tree/main
+* Link to Presentation: https://docs.google.com/presentation/d/1M_5tHX9alBLKTVYUj6u7c3miR0bolRLFju2YxoQ0-JM/edit?usp=sharing
+
+![alt text](https://i.ibb.co/vJMwcvB/Screenshot-2023-03-30-at-14-28-55.png)
 
 ## Table of Contents ##
 •[Installation](#installation)
@@ -68,9 +71,9 @@ This is a public repo and available to be run locally with the packages noted in
 The source code for the site is licensed under the MIT License Please refer to the LICENSE in the repo.
 
 ## Contributing ##
-<br/> [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+<br/> [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 Firstly, thanks for taking the time to contribute! We are happy for any contributions to this repo, with raising issues or reporting bugs.
-Please remain respectful to any community members inline with our code of [conduct](code_of_conduct.md) 
+Please remain respectful to any community members inline with our [code of conduct](CODE_OF_CONDUCT.md) 
 
 We welcome contributions from anyone. Please follow these guidelines:
 
