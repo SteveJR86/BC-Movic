@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Search, Add } from 'grommet-icons';
-import { Box, TextInput, Card, Image, Heading, CardHeader, CardBody, Grid, Button } from 'grommet';
+import { Box, TextInput, Card, Image, Heading, CardHeader, CardBody, Grid, Button, CardFooter } from 'grommet';
+import AddComment from '../Comments/AddComment';
 
 const SearchMusic = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -80,10 +81,10 @@ const SearchMusic = () => {
             <Box pad="large">
                 <Grid columns={window.innerWidth >= 768 ? 'medium' : '75%'} gap="small">
                     {searchResults.map((result, index) => (
-                        <Card key={index}>
+                        <Card key={index} background='background-front'>
                             <CardHeader pad="medium">
                                 <Heading size="medium">{result.name}</Heading>
-                                <Button color="dark-1" primary icon={<Add color="brand" />} label="Add to Favorites" onClick={() => handleAddToFavorites(result)} />
+                                <Button hoverIndicator='focus' color="dark-1" primary icon={<Add color="brand" />} label="Add to Favorites" onClick={() => handleAddToFavorites(result)} />
                             </CardHeader>
                             <CardBody pad="medium">
                                 <div><Heading size="small">{result.artist}</Heading></div>
@@ -92,6 +93,7 @@ const SearchMusic = () => {
                                 </Box>
                                 <Image src={result.image || 'https://i.ibb.co/JRjprxY/My-project-1-2.png'} alt={`${result.artist} - ${result.name}`} fit="contain" />
                             </CardBody>
+                            <CardFooter><AddComment/></CardFooter>
                         </Card>
                     ))}
                 </Grid>
