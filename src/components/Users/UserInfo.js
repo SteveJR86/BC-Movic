@@ -36,7 +36,7 @@ const UserInfo = () => {
         <>
             <Box direction="row" gap="large" align="end">
                 <Avatar size="4xl" background="brand" src={user.photoURL}>
-                </Avatar><Heading >{user.displayName}</Heading>
+                </Avatar><Heading size='large'>{user.displayName}</Heading>
             </Box>
 
 
