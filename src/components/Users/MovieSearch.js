@@ -1,9 +1,9 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { Search,  } from 'grommet-icons';
 import { Box, TextInput,Card,Image,Heading,CardHeader,CardBody, Grid, Button, CardFooter} from 'grommet';
 import { Link } from 'react-router-dom';
-import { getDatabase, ref, set } from "firebase/database";
-import { getAuth,} from 'firebase/auth';
+import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getAuth } from 'firebase/auth';
 import AddComment from '../Comments/AddComment'
 
 
@@ -40,6 +40,18 @@ import AddComment from '../Comments/AddComment'
     setResults(movieSearchArray)
     }}) 
     }; 
+    const database = getDatabase();
+    const user = getAuth().currentUser;
+    useEffect(() => {
+      const favouritesRef = ref(database, "favourites/" + user.displayName);
+      
+
+      onValue(favouritesRef, (snapshot) => {
+          const data = snapshot.val();
+          setFavourites(data);
+      });
+
+  }, [database, user.displayName]);
    
     const AddtoFavourites = (movieID) => {
       const movietoSave = results.find(results=>results.movieID===movieID)
