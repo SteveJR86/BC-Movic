@@ -1,4 +1,4 @@
-# Getting Started with Create React App [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+# Getting Started with Create React App [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
 ## Description ##
 This  of this social media application idea centred around music and movies created as part of the Bootcamp course with EDx. The application provides a unique social experience for users with similar interests in music and movies. The proposed application will offer a platform allowing users to connect, share their interests and views on music and movies, discover new content, and stay up to date on the latest news and trends in the entertainment industry.
@@ -59,11 +59,11 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 ### Npm Packages used:
 
 #### Grommet
-provides the user interface and the inquiry session, documentation on installation and use can be found on; https://www.npmjs.com/package/inquirer 
+provides the user interface and styling, documentation can be found at [Grommet](https://v2.grommet.io/)
 
   
 ## Usage ##
-This is a public repo and available to be run locally with the packages noted in the Installation section. <br/> Clone project git clone ggit@github.com:SteveJR86/BC-Movic.git<br/> 
+This is a public repo and available to be run locally with the packages noted in the Installation section. <br/> Clone project git clone git@github.com:SteveJR86/BC-Movic.git<br/> 
 
 ## License ##
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
