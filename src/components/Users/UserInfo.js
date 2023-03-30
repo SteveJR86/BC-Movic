@@ -35,8 +35,8 @@ const UserInfo = () => {
     return (
         <>
             <Box direction="row" gap="large" align="end">
-                <Avatar size="4xl" background="brand" src={user.photoURL}>
-                </Avatar><Heading >{user.displayName}</Heading>
+            {user.photoURL ? <Avatar size='4xl' src={user.photoURL} /> : <Avatar size='4xl' background='dark-2'>{user.displayName[0]}</Avatar>}
+            <Heading >{user.displayName}</Heading>
             </Box>
 
 
